@@ -28,11 +28,15 @@ def check_rules(ctx, material_id, scope="basic", publish_date=None):
     def add(rule_id, severity, message):
         findings.append(dict(rule_id=rule_id, severity=severity, message=message))
 
-    fields = {"title": view.get("title"), "type": view.get("type"),
-              "copyright.owner": view.get("copyright", {}).get("owner"),
-              "copyright.license_status": view.get("copyright", {}).get("license_status")}
+    def field_value(path):
+        value = view
+        for part in path.split("."):
+            value = value.get(part) if isinstance(value, dict) else None
+        return value
+    required_fields = list(ctx.repo.rules["R01"]["required_fields"])
     if view.get("type") == "video":
-        fields["duration_sec"] = view.get("duration_sec")
+        required_fields += ctx.repo.rules["R01"]["video_required_fields"]
+    fields = {field: field_value(field) for field in required_fields}
     for field, value in fields.items():
         if value is None or value == "":
             add("R01", "need_info", f"缺少 {field}")

@@ -12,13 +12,13 @@
 
 ## 阶段 1：数据、工具、存储、红线（45 分钟）
 
-- [ ] `data/` 下的种子文件，内容完全按 04 第 2 节
-- [ ] `domain/models.py` 枚举、`domain/fingerprint.py`
-- [ ] 6 个业务工具和 `submit_report`，统一返回结构，生成 `summary`
-- [ ] `store/draft_store.py`：created / duplicate / updated，原子写入
-- [ ] `domain/guards.py`：03 第 6 节的 9 个违规码
-- [ ] `tools/registry.py`：schema、参数校验、故障注入、把异常转换成错误结构
-- [ ] 单元测试：06 第 3 节列出的红线测试全部写上
+- [x] `data/` 下的种子文件，内容完全按 04 第 2 节
+- [x] `domain/models.py` 枚举、`domain/fingerprint.py`
+- [x] 6 个业务工具和 `submit_report`，统一返回结构，生成 `summary`
+- [x] `store/draft_store.py`：created / duplicate / updated，原子写入
+- [x] `domain/guards.py`：03 第 6 节的 9 个违规码
+- [x] `tools/registry.py`：schema、参数校验、故障注入、把异常转换成错误结构
+- [x] 单元测试：06 第 3 节列出的红线测试全部写上
 - **完成标准**：`pytest tests/test_tools.py tests/test_guards.py tests/test_draft_store.py tests/test_fingerprint.py` 全部通过
 
 ## 阶段 2：LLM 与主循环（45 分钟）

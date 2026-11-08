@@ -1,0 +1,10 @@
+{
+  "M01": {"title":"秋季穿搭","description":"秋季日常穿搭分享","type":"video","duration_sec":45,"channels":["douyin"],"copyright":{"owner":"合成内容团队","license_status":"valid","license_expiry":"2027-12-31"}},
+  "M02": {"title":"周末露营 vlog","description":"记录周末露营","type":"video","duration_sec":58,"channels":["douyin"],"copyright":{"owner":"合成内容团队","license_status":"valid","license_expiry":"2027-12-31"}},
+  "M03": {"title":"新品开箱","description":"演示新品开箱","type":"video","duration_sec":null,"channels":["douyin"],"copyright":{"owner":null,"license_status":null,"license_expiry":null},"extended":{"duration_sec":62,"copyright_owner":null}},
+  "M04": {"title":"城市夜跑","description":"城市夜间跑步记录","type":"video","duration_sec":40,"channels":["douyin"],"copyright":{"owner":"合成内容团队","license_status":"valid","license_expiry":"2027-12-31"},"music":{"owner":"合成音乐库","license_status":"unknown","license_expiry":null}},
+  "M05": {"title":"全网第一的剪辑技巧","description":"剪辑技巧演示","type":"video","duration_sec":50,"channels":["xiaohongshu"],"copyright":{"owner":"合成内容团队","license_status":"valid","license_expiry":"2027-12-31"}},
+  "M06": {"title":"双 11 直播预告","description":"直播活动预告","type":"video","duration_sec":30,"channels":["douyin"],"copyright":{"owner":"合成内容团队","license_status":"valid","license_expiry":"2027-12-31"}},
+  "M07": {"title":"咖啡拉花","description":"咖啡拉花过程","type":"video","duration_sec":35,"channels":["douyin"],"copyright":{"owner":"合成内容团队","license_status":"valid","license_expiry":"2027-12-31"},"music":{"owner":"合成音乐库","license_status":"unknown","license_expiry":null}},
+  "M09": {"title":"新品抢先预告","description":"合成禁发期案例","type":"video","duration_sec":25,"channels":["douyin"],"copyright":{"owner":"合成内容团队","license_status":"valid","license_expiry":"2027-12-31"},"embargo_until":"2026-11-10T20:00"}
+}

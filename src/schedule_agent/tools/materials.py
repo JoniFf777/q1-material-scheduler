@@ -15,6 +15,8 @@ def list_pending_materials(ctx, channel=None):
 
 
 def get_material(ctx, material_id, detail="basic"):
+    if not ctx.requirement(material_id):
+        return error("INVALID_ARGUMENTS", "素材不在本请求中")
     material = ctx.repo.material(material_id)
     if material is None:
         ctx.missing.add(material_id)
@@ -29,6 +31,17 @@ def get_material(ctx, material_id, detail="basic"):
                 material[k] = v
         material["extended"] = extended
     # A subsequent basic read must not discard already discovered full fields.
-    if detail == "full" or material_id not in ctx.views:
+    if material_id not in ctx.views:
         ctx.views[material_id] = material
+    elif detail == "full":
+        # Merge supplemental fields without discarding verified license/content evidence.
+        view = ctx.views[material_id]
+        for key, value in material.items():
+            if key not in view or view[key] is None:
+                view[key] = value
+            elif isinstance(value, dict) and isinstance(view[key], dict):
+                for field, extra in value.items():
+                    if view[key].get(field) is None:
+                        view[key][field] = extra
+        view["extended"] = extended
     return ok(ctx.views[material_id], f"读取 {material_id}（{detail}）")

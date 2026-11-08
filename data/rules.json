@@ -1,0 +1,6 @@
+{
+  "R01":{"required_fields":["title","type","copyright.owner","copyright.license_status"],"video_required_fields":["duration_sec"]},
+  "R02":{"description":"版权授权有效且到期日不早于排期日期"},
+  "R03":{"description":"背景音乐授权有效且到期日不早于排期日期"},
+  "R04":{"description":"违禁词阻断，极限用语需确认"}
+}

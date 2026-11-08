@@ -90,8 +90,8 @@ def validate(ctx, items):
         if embargo and start < embargo:
             hard.append("素材禁发期")
         # A specific user relaxation must match the actual proposal. A generic yes is insufficient.
-        relaxed = ctx.approved_by_user(mid, "constraint_relax", start)
-        if hard and not relaxed:
+        # I4 keeps fixed requests immutable; explicit new requirements form a new request.
+        if hard:
             add("HARD_CONSTRAINT_VIOLATION", mid, "违反：" + "、".join(hard))
         for key in ("copyright", "music"):
             info = ctx.views.get(mid, {}).get(key, {})

@@ -29,7 +29,14 @@ class DraftStore:
         data = self.read()
         items = sorted(copy.deepcopy(items), key=lambda i: i["material_id"])
         pending = sorted(copy.deepcopy(pending), key=lambda c: c["id"])
-        content_hash = "sha256:" + digest({"items": items, "pending_confirmations": pending})
+        # Presentation wording and model call order do not change business content.
+        semantic_items = copy.deepcopy(items)
+        for item in semantic_items:
+            item["confirmation_ids"] = sorted(item.get("confirmation_ids", []))
+            item["risk_reasons"] = sorted(item.get("risk_reasons", []))
+        semantic_pending = [{k: v for k, v in c.items() if k not in ("question", "options")}
+                            for c in pending]
+        content_hash = "sha256:" + digest({"items": semantic_items, "pending_confirmations": semantic_pending})
         draft = next((d for d in data["drafts"] if d["idempotency_key"] == key), None)
         if draft and draft["content_hash"] == content_hash:
             return self._result(draft, "duplicate")
