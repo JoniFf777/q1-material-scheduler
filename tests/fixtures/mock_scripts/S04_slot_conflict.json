@@ -1,0 +1,105 @@
+[
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "离线固定脚本验证流程"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "check_rules",
+        "arguments": {
+          "material_id": "M01",
+          "scope": "basic",
+          "reason": "离线固定脚本验证流程"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "query_slots",
+        "arguments": {
+          "channel": "douyin",
+          "date": "2026-11-10",
+          "from": "17:00",
+          "to": "21:00",
+          "reason": "离线固定脚本验证流程"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "request_confirmation",
+        "arguments": {
+          "material_id": "M01",
+          "type": "time_change",
+          "question": "18:00 被 M90 占用，是否改到 19:00？",
+          "options": [
+            "同意",
+            "拒绝"
+          ],
+          "proposed_slot": "2026-11-10T19:00",
+          "reason": "离线固定脚本验证流程"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "save_schedule_draft",
+        "arguments": {
+          "items": [
+            {
+              "material_id": "M01",
+              "review_status": "approved",
+              "risk_reasons": [],
+              "slot": {
+                "channel": "douyin",
+                "start": "2026-11-10T19:00"
+              },
+              "confirmation_status": "pending",
+              "confirmation_ids": [
+                "C-cb7a91b624"
+              ]
+            }
+          ],
+          "reason": "离线固定脚本验证流程"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "submit_report",
+        "arguments": {
+          "items": [
+            {
+              "material_id": "M01",
+              "review_status": "approved",
+              "risk_reasons": [],
+              "suggested_slot": "2026-11-10T19:00",
+              "confirmation_status": "pending",
+              "pending_items": [
+                "确认改到19:00"
+              ]
+            }
+          ],
+          "overall_note": "草稿待确认",
+          "reason": "离线固定脚本验证流程"
+        }
+      }
+    ]
+  }
+]

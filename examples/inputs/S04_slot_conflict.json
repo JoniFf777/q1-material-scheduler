@@ -1,0 +1,31 @@
+{
+  "name": "S04_slot_conflict",
+  "description": "参考实例：18:00 被占用，19:00 可用",
+  "request": {
+    "items": [
+      {
+        "material_id": "M01",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T18:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "setup": {},
+  "expect": {
+    "M01": {
+      "review_status": "approved",
+      "suggested_slot": "2026-11-10T19:00",
+      "confirmation_status": "pending",
+      "slot_status": "alternative"
+    },
+    "draft_result": "created",
+    "status": "completed_with_pending"
+  }
+}

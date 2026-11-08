@@ -1,0 +1,66 @@
+{
+  "name": "S09_step_limit",
+  "description": "S09_step_limit",
+  "setup": {
+    "limits": {
+      "max_steps": 4
+    }
+  },
+  "request": {
+    "items": [
+      {
+        "material_id": "M01",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T18:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      },
+      {
+        "material_id": "M02",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T20:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      },
+      {
+        "material_id": "M04",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T19:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      },
+      {
+        "material_id": "M07",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T21:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "status": "incomplete",
+    "incomplete_reason": "MAX_STEPS_REACHED",
+    "draft_result": "not_saved",
+    "M07": {
+      "review_status": "unknown"
+    }
+  }
+}

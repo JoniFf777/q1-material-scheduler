@@ -1,0 +1,30 @@
+{
+  "name": "S05_hard_conflict",
+  "description": "S05_hard_conflict",
+  "setup": {},
+  "request": {
+    "items": [
+      {
+        "material_id": "M06",
+        "channel": "douyin",
+        "preferred_time": "2026-11-11T20:00",
+        "time_policy": "fixed",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "M06": {
+      "review_status": "approved",
+      "suggested_slot": null,
+      "confirmation_status": "pending"
+    },
+    "draft_result": "created",
+    "status": "completed_with_pending"
+  }
+}

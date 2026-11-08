@@ -23,12 +23,12 @@
 
 ## 阶段 2：LLM 与主循环（45 分钟）
 
-- [ ] `llm/openai_compat.py`、`llm/mock.py`（ScriptedMockLLM）
-- [ ] `context.py`、`agent.py`（02 第 3 节）、限额、重复调用检测
-- [ ] `trace.py`：输出 trace.json 和 trace.md，带 reason、summary、next_action
-- [ ] 最终结果组装（02 第 6 节）、`render.py` 用模板渲染文本
-- [ ] `checks.py`：不变式 I1–I7
-- [ ] `tests/test_agent_loop.py`，mock 脚本放在 `tests/fixtures/mock_scripts/`
+- [x] `llm/openai_compat.py`、`llm/mock.py`（ScriptedMockLLM）
+- [x] `context.py`、`agent.py`（02 第 3 节）、限额、重复调用检测
+- [x] `trace.py`：输出 trace.json 和 trace.md，带 reason、summary、next_action
+- [x] 最终结果组装（02 第 6 节）、`render.py` 用模板渲染文本
+- [x] `checks.py`：不变式 I1–I7
+- [x] `tests/test_agent_loop.py`，mock 脚本放在 `tests/fixtures/mock_scripts/`
 - **完成标准**：离线 `pytest` 全部通过；`schedule-agent run --llm mock --input examples/inputs/S04_slot_conflict.json` 能输出结果和 Trace
 
 ## 阶段 3：CLI 与场景（30 分钟）

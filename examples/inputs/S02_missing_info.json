@@ -1,0 +1,44 @@
+{
+  "name": "S02_missing_info",
+  "description": "S02_missing_info",
+  "setup": {},
+  "request": {
+    "items": [
+      {
+        "material_id": "M03",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T15:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      },
+      {
+        "material_id": "M08",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T16:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "M03": {
+      "review_status": "need_info",
+      "suggested_slot": null
+    },
+    "M08": {
+      "review_status": "need_info",
+      "suggested_slot": null
+    },
+    "draft_result": "created",
+    "status": "completed_with_pending"
+  }
+}

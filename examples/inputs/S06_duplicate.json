@@ -1,0 +1,31 @@
+{
+  "name": "S06_duplicate",
+  "description": "S06_duplicate",
+  "setup": {},
+  "request": {
+    "items": [
+      {
+        "material_id": "M01",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T18:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "M01": {
+      "suggested_slot": "2026-11-10T19:00",
+      "slot_status": "alternative",
+      "confirmation_status": "pending"
+    },
+    "draft_result": "duplicate",
+    "status": "completed_with_pending",
+    "draft_count": 1
+  }
+}

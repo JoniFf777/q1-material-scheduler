@@ -1,0 +1,197 @@
+[
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M04"
+        }
+      },
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M05"
+        }
+      },
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M07"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M04",
+          "scope": "basic"
+        }
+      },
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M05",
+          "scope": "basic"
+        }
+      },
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M07",
+          "scope": "basic"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M04",
+          "scope": "license"
+        }
+      },
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M07",
+          "scope": "license"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "query_slots",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "channel": "xiaohongshu",
+          "date": "2026-11-10",
+          "from": "08:00",
+          "to": "21:00"
+        }
+      },
+      {
+        "name": "query_slots",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "channel": "douyin",
+          "date": "2026-11-10",
+          "from": "08:00",
+          "to": "21:00"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "request_confirmation",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M05",
+          "type": "risk_ack",
+          "question": "标题含极限用语‘第一’，请确认风险或修改素材。",
+          "options": [
+            "同意",
+            "补充信息或拒绝"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "save_schedule_draft",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "items": [
+            {
+              "material_id": "M04",
+              "review_status": "blocked",
+              "risk_reasons": [],
+              "slot": null,
+              "confirmation_status": "not_required",
+              "confirmation_ids": []
+            },
+            {
+              "material_id": "M05",
+              "review_status": "needs_confirmation",
+              "risk_reasons": [],
+              "slot": {
+                "channel": "xiaohongshu",
+                "start": "2026-11-10T12:00"
+              },
+              "confirmation_status": "pending",
+              "confirmation_ids": [
+                "C-1ad5c3fa5f"
+              ]
+            },
+            {
+              "material_id": "M07",
+              "review_status": "approved",
+              "risk_reasons": [],
+              "slot": {
+                "channel": "douyin",
+                "start": "2026-11-10T21:00"
+              },
+              "confirmation_status": "not_required",
+              "confirmation_ids": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "submit_report",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "items": [
+            {
+              "material_id": "M04",
+              "review_status": "blocked",
+              "risk_reasons": [],
+              "suggested_slot": null,
+              "confirmation_status": "not_required",
+              "pending_items": []
+            },
+            {
+              "material_id": "M05",
+              "review_status": "needs_confirmation",
+              "risk_reasons": [],
+              "suggested_slot": "2026-11-10T12:00",
+              "confirmation_status": "pending",
+              "pending_items": []
+            },
+            {
+              "material_id": "M07",
+              "review_status": "approved",
+              "risk_reasons": [],
+              "suggested_slot": "2026-11-10T21:00",
+              "confirmation_status": "not_required",
+              "pending_items": []
+            }
+          ],
+          "overall_note": "仅生成草稿，未发布"
+        }
+      }
+    ]
+  }
+]

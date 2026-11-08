@@ -1,0 +1,31 @@
+{
+  "name": "S07_save_failure",
+  "description": "S07_save_failure",
+  "setup": {
+    "faults": {
+      "save_schedule_draft": "always"
+    }
+  },
+  "request": {
+    "items": [
+      {
+        "material_id": "M02",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T20:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "draft_result": "failed",
+    "status": "save_failed",
+    "draft_count": 0,
+    "error_code": "STORAGE_UNAVAILABLE"
+  }
+}

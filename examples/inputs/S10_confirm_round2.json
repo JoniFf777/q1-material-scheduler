@@ -1,0 +1,39 @@
+{
+  "name": "S10_confirm_round2",
+  "description": "S10_confirm_round2",
+  "setup": {},
+  "request": {
+    "items": [
+      {
+        "material_id": "M01",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T18:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [
+    {
+      "material_id": "M01",
+      "type": "time_change",
+      "proposed_slot": "2026-11-10T19:00",
+      "status": "confirmed",
+      "user_reply": "同意改到19点"
+    }
+  ],
+  "expect": {
+    "M01": {
+      "suggested_slot": "2026-11-10T19:00",
+      "confirmation_status": "confirmed"
+    },
+    "draft_result": "updated",
+    "version": 2,
+    "draft_count": 1,
+    "status": "completed"
+  }
+}

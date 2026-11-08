@@ -71,6 +71,7 @@ class ToolRegistry:
                 violations = validate(ctx, clean["items"])
                 if violations:
                     return self._remember(name, error("VALIDATION_FAILED", "草稿校验失败", violations=violations), ctx)
+                ctx.attempt_items = ctx.canonical_items(clean["items"])
             self.counts[name] = self.counts.get(name, 0) + 1
             mode = self.faults.get(name)
             if mode == "always" or (mode == "once" and self.counts[name] == 1):

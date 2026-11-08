@@ -1,0 +1,46 @@
+{
+  "name": "S06b_slot_changed",
+  "description": "S06b_slot_changed",
+  "setup": {
+    "schedule_patch": {
+      "remove": [
+        {
+          "material_id": "M90"
+        }
+      ],
+      "add": [
+        {
+          "material_id": "M90",
+          "channel": "douyin",
+          "start": "2026-11-10T19:00"
+        }
+      ]
+    }
+  },
+  "request": {
+    "items": [
+      {
+        "material_id": "M01",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T18:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "M01": {
+      "suggested_slot": "2026-11-10T18:00",
+      "slot_status": "as_requested",
+      "confirmation_status": "not_required"
+    },
+    "draft_result": "updated",
+    "version": 2,
+    "draft_count": 1
+  }
+}

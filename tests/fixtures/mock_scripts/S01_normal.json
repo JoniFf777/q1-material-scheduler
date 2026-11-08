@@ -1,0 +1,83 @@
+[
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M02"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M02",
+          "scope": "basic"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "query_slots",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "channel": "douyin",
+          "date": "2026-11-10",
+          "from": "08:00",
+          "to": "21:00"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "save_schedule_draft",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "items": [
+            {
+              "material_id": "M02",
+              "review_status": "approved",
+              "risk_reasons": [],
+              "slot": {
+                "channel": "douyin",
+                "start": "2026-11-10T20:00"
+              },
+              "confirmation_status": "not_required",
+              "confirmation_ids": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "submit_report",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "items": [
+            {
+              "material_id": "M02",
+              "review_status": "approved",
+              "risk_reasons": [],
+              "suggested_slot": "2026-11-10T20:00",
+              "confirmation_status": "not_required",
+              "pending_items": []
+            }
+          ],
+          "overall_note": "仅生成草稿，未发布"
+        }
+      }
+    ]
+  }
+]

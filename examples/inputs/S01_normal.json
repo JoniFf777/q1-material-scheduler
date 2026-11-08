@@ -1,0 +1,30 @@
+{
+  "name": "S01_normal",
+  "description": "S01_normal",
+  "setup": {},
+  "request": {
+    "items": [
+      {
+        "material_id": "M02",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T20:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "M02": {
+      "review_status": "approved",
+      "slot_status": "as_requested",
+      "confirmation_status": "not_required"
+    },
+    "draft_result": "created",
+    "status": "completed"
+  }
+}

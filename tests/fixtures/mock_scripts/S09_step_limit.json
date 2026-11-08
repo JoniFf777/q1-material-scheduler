@@ -1,0 +1,46 @@
+[
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M01"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M02"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M04"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M07"
+        }
+      }
+    ]
+  }
+]

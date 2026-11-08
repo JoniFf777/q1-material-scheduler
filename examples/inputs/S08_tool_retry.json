@@ -1,0 +1,32 @@
+{
+  "name": "S08_tool_retry",
+  "description": "S08_tool_retry",
+  "setup": {
+    "faults": {
+      "query_slots": "once"
+    }
+  },
+  "request": {
+    "items": [
+      {
+        "material_id": "M02",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T20:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "draft_result": "created",
+    "status": "completed",
+    "trace_errors": [
+      "TOOL_TIMEOUT"
+    ]
+  }
+}

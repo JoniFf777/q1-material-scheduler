@@ -1,0 +1,33 @@
+{
+  "run_id": "run-6b2a900bd3b8",
+  "request_key": "RQ-7f6c48bff24f",
+  "items": [
+    {
+      "material_id": "M01",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-10T19:00",
+      "channel": "douyin",
+      "slot_status": "alternative",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "18:00 被 M90 占用，是否改到 19:00？"
+      ],
+      "confirmation_ids": [
+        "C-cb7a91b624"
+      ],
+      "draft_save_status": "created"
+    }
+  ],
+  "draft_save": {
+    "status": "created",
+    "draft_id": "D-7f6c48bff24f",
+    "version": 1,
+    "store_file": "runtime\\phase2-s04\\drafts.json"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "completed_with_pending",
+  "invariant_errors": []
+}

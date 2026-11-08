@@ -6,3 +6,4 @@
 - 环境：系统 `python` 是 3.8.10；项目已有 `.venv` 是 3.10.9，后续统一使用项目虚拟环境。
 - 阶段 0：editable 安装成功，CLI --help 正常，pytest 1/1 通过。
 - 阶段 1：工具/校验/存储/指纹专项测试 30/30；全量 pytest 31/31。沙箱下指定 --basetemp=runtime/pytest-phase1-all，避免系统临时目录的替换权限限制。阶段 0 首次提交同时收录了检查期间出现的基础业务代码，本阶段已审查、修正并验证。
+- 阶段 2：pytest 45/45；CLI S04 Mock 实跑为 19:00 / pending / created，写出 result.json 和 JSON/Markdown Trace。SDK 的 HTTP MockTransport 测试不连接网络、不作为 live 证据。

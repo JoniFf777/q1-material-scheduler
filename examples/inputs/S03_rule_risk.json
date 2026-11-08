@@ -1,0 +1,58 @@
+{
+  "name": "S03_rule_risk",
+  "description": "S03_rule_risk",
+  "setup": {},
+  "request": {
+    "items": [
+      {
+        "material_id": "M04",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T19:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      },
+      {
+        "material_id": "M05",
+        "channel": "xiaohongshu",
+        "preferred_time": "2026-11-10T12:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      },
+      {
+        "material_id": "M07",
+        "channel": "douyin",
+        "preferred_time": "2026-11-10T21:00",
+        "time_policy": "flexible",
+        "constraints": {
+          "date_fixed": true,
+          "channel_fixed": true,
+          "not_after": "21:00"
+        }
+      }
+    ]
+  },
+  "confirmations": [],
+  "expect": {
+    "M04": {
+      "review_status": "blocked",
+      "suggested_slot": null
+    },
+    "M05": {
+      "review_status": "needs_confirmation",
+      "confirmation_status": "pending"
+    },
+    "M07": {
+      "review_status": "approved",
+      "suggested_slot": "2026-11-10T21:00"
+    },
+    "draft_result": "created"
+  }
+}

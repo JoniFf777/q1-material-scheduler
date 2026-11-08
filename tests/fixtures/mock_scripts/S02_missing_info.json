@@ -1,0 +1,147 @@
+[
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M03"
+        }
+      },
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M08"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M03",
+          "scope": "basic"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "get_material",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M03",
+          "detail": "full"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "check_rules",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M03",
+          "scope": "basic"
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "request_confirmation",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M03",
+          "type": "info_needed",
+          "question": "请补充版权方和授权状态。",
+          "options": [
+            "同意",
+            "补充信息或拒绝"
+          ]
+        }
+      },
+      {
+        "name": "request_confirmation",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "material_id": "M08",
+          "type": "info_needed",
+          "question": "素材 M08 不存在，请提供正确的素材 ID。",
+          "options": [
+            "同意",
+            "补充信息或拒绝"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "save_schedule_draft",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "items": [
+            {
+              "material_id": "M03",
+              "review_status": "need_info",
+              "risk_reasons": [],
+              "slot": null,
+              "confirmation_status": "pending",
+              "confirmation_ids": [
+                "C-849768b35c"
+              ]
+            },
+            {
+              "material_id": "M08",
+              "review_status": "need_info",
+              "risk_reasons": [],
+              "slot": null,
+              "confirmation_status": "pending",
+              "confirmation_ids": [
+                "C-d04efbe430"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "calls": [
+      {
+        "name": "submit_report",
+        "arguments": {
+          "reason": "离线脚本验证此步骤",
+          "items": [
+            {
+              "material_id": "M03",
+              "review_status": "need_info",
+              "risk_reasons": [],
+              "suggested_slot": null,
+              "confirmation_status": "pending",
+              "pending_items": []
+            },
+            {
+              "material_id": "M08",
+              "review_status": "need_info",
+              "risk_reasons": [],
+              "suggested_slot": null,
+              "confirmation_status": "pending",
+              "pending_items": []
+            }
+          ],
+          "overall_note": "仅生成草稿，未发布"
+        }
+      }
+    ]
+  }
+]

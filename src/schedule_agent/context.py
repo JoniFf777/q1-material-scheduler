@@ -20,6 +20,7 @@ class RunContext:
         self.queries = []
         self.save_observation = None
         self.saved_items = None
+        self.attempt_items = None
         self.tool_calls_used = 0
 
     @property
@@ -37,6 +38,18 @@ class RunContext:
     def approved_by_user(self, material_id, kind, slot=None):
         return any(c["status"] == "confirmed" for c in self.confirmation_matches(material_id, kind, slot))
 
-    def pending(self):
+    def pending(self, ids=None):
         return [{k: v for k, v in c.items() if k != "status"}
-                for c in self.confirmation_records.values() if c["status"] == "pending"]
+                for c in self.confirmation_records.values() if c["status"] == "pending"
+                and (ids is None or c["id"] in ids)]
+
+    def canonical_items(self, items):
+        items = copy.deepcopy(items)
+        for item in items:
+            mid = item["material_id"]
+            if mid in self.missing:
+                item["risk_reasons"] = ["素材不存在"]
+            elif mid in self.checked:
+                item["risk_reasons"] = sorted({f["message"] for f in self.findings.get(mid, [])})
+            item["confirmation_ids"] = sorted(set(item.get("confirmation_ids", [])))
+        return items
