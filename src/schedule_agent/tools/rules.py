@@ -48,6 +48,8 @@ def check_rules(ctx, material_id, scope="basic", publish_date=None):
             add(rule_id, "block", f"{key} 授权已过期（{expiry or '未记录日期'}）")
         elif status == "unknown":
             add(rule_id, "uncertain", f"{key} 授权状态未知")
+        elif status not in (None, "", "valid") or (key == "music" and key in view and not status):
+            add(rule_id, "need_info", f"{key} 授权状态缺失或无效")
     text = view.get("title", "") + " " + view.get("description", "")
     if view.get("content_checked"):
         text += " " + view.get("subtitles", "")

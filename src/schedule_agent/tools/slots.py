@@ -5,10 +5,10 @@ from .common import ok, error
 
 def query_slots(ctx, channel, date, **window):
     config = ctx.repo.slot_config
-    Date.fromisoformat(date)
+    parsed_date = Date.fromisoformat(date)
     start, end = window["from"], window["to"]
-    Time.fromisoformat(start)
-    Time.fromisoformat(end)
+    if parsed_date.isoformat() != date or any(Time.fromisoformat(t).strftime("%H:%M") != t for t in (start, end)):
+        return error("INVALID_ARGUMENTS", "日期或时间格式无效")
     if channel not in config["channels"] or start > end:
         return error("INVALID_ARGUMENTS", "渠道或查询窗口无效")
     slots = []

@@ -1,0 +1,28 @@
+{
+  "run_id": "run-8e581398404d",
+  "request_key": "RQ-9896d94c8916",
+  "items": [
+    {
+      "material_id": "M02",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-10T20:00",
+      "channel": "douyin",
+      "slot_status": "as_requested",
+      "confirmation_status": "not_required",
+      "pending_items": [],
+      "confirmation_ids": [],
+      "draft_save_status": "failed"
+    }
+  ],
+  "draft_save": {
+    "status": "failed",
+    "error_code": "STORAGE_UNAVAILABLE",
+    "message": "注入的工具故障"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "save_failed",
+  "invariant_errors": []
+}

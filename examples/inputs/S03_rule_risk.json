@@ -43,15 +43,20 @@
   "expect": {
     "M04": {
       "review_status": "blocked",
-      "suggested_slot": null
+      "suggested_slot": null,
+      "confirmation_status": "not_required"
     },
     "M05": {
       "review_status": "needs_confirmation",
-      "confirmation_status": "pending"
+      "confirmation_status": "pending",
+      "suggested_slot": "2026-11-10T12:00",
+      "slot_status": "as_requested"
     },
     "M07": {
       "review_status": "approved",
-      "suggested_slot": "2026-11-10T21:00"
+      "suggested_slot": "2026-11-10T21:00",
+      "confirmation_status": "not_required",
+      "slot_status": "as_requested"
     },
     "draft_result": "created"
   }

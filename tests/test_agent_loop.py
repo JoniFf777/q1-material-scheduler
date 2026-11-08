@@ -131,3 +131,17 @@ def test_tool_error_reaches_next_model_turn(ctx):
     script.insert(3, copy.deepcopy(script[2]))
     result, trace = run(ctx, ObservingMock(script), registry=ToolRegistry({"query_slots": "once"}))
     assert result["status"] == "completed"
+
+
+def test_saved_draft_must_be_updated_after_new_blocking_evidence(ctx):
+    ctx.repo.materials["M02"]["subtitles"] = "合成违禁词"
+    script = normal_script()
+    script.insert(-1, round_(tool("check_rules", material_id="M02", scope="content")))
+    script += [round_(tool("save_schedule_draft", items=[draft_item(start=None, review="blocked")])),
+               round_(report(review="blocked", slot=None))]
+    result, trace = run(ctx, ScriptedMockLLM(script))
+    reports = [s for s in trace["steps"] if s["tool"] == "submit_report"]
+    assert not reports[0]["ok"] and reports[-1]["ok"]
+    draft = ctx.store.read()["drafts"][0]
+    assert draft["version"] == 2 and draft["items"][0]["slot"] is None
+    assert result["items"][0]["review_status"] == "blocked"

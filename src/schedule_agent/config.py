@@ -4,6 +4,10 @@ from dataclasses import dataclass, field
 from dotenv import load_dotenv
 
 
+class ConfigurationError(ValueError):
+    pass
+
+
 @dataclass(frozen=True)
 class ModelConfig:
     base_url: str
@@ -15,5 +19,5 @@ class ModelConfig:
         load_dotenv()
         values = [os.getenv(key, "").strip() for key in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL")]
         if not all(values):
-            raise ValueError("live 模式需要在 .env 中配置 LLM_BASE_URL、LLM_API_KEY、LLM_MODEL")
+            raise ConfigurationError("live 模式需要在 .env 中配置 LLM_BASE_URL、LLM_API_KEY、LLM_MODEL")
         return cls(*values)

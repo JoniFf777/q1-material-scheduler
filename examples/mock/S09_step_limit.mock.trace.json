@@ -1,0 +1,197 @@
+{
+  "run_id": "run-159ac2929a06",
+  "llm": {
+    "mode": "mock",
+    "provider": "offline",
+    "model": "scripted-mock",
+    "temperature": 0,
+    "decision_evidence": false
+  },
+  "input_file": "D:\\java\\xiaoying\\q1-material-scheduler\\examples\\inputs\\S09_step_limit.json",
+  "limits": {
+    "max_steps": 4,
+    "max_tool_calls": 30,
+    "max_same_call": 3
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool_call_id": "mock-1-1",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M01"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "秋季穿搭",
+          "description": "秋季日常穿搭分享",
+          "type": "video",
+          "duration_sec": 45,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": "合成内容团队",
+            "license_status": "valid",
+            "license_expiry": "2027-12-31"
+          }
+        },
+        "summary": "读取 M01（basic）"
+      },
+      "result_summary": "读取 M01（basic）",
+      "next_action": "get_material {\"material_id\": \"M02\"}"
+    },
+    {
+      "step": 2,
+      "tool_call_id": "mock-2-1",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M02"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "周末露营 vlog",
+          "description": "记录周末露营",
+          "type": "video",
+          "duration_sec": 58,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": "合成内容团队",
+            "license_status": "valid",
+            "license_expiry": "2027-12-31"
+          }
+        },
+        "summary": "读取 M02（basic）"
+      },
+      "result_summary": "读取 M02（basic）",
+      "next_action": "get_material {\"material_id\": \"M04\"}"
+    },
+    {
+      "step": 3,
+      "tool_call_id": "mock-3-1",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M04"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "城市夜跑",
+          "description": "城市夜间跑步记录",
+          "type": "video",
+          "duration_sec": 40,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": "合成内容团队",
+            "license_status": "valid",
+            "license_expiry": "2027-12-31"
+          },
+          "music": {
+            "owner": "合成音乐库",
+            "license_status": "unknown",
+            "license_expiry": null
+          }
+        },
+        "summary": "读取 M04（basic）"
+      },
+      "result_summary": "读取 M04（basic）",
+      "next_action": "get_material {\"material_id\": \"M07\"}"
+    },
+    {
+      "step": 4,
+      "tool_call_id": "mock-4-1",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M07"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "咖啡拉花",
+          "description": "咖啡拉花过程",
+          "type": "video",
+          "duration_sec": 35,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": "合成内容团队",
+            "license_status": "valid",
+            "license_expiry": "2027-12-31"
+          },
+          "music": {
+            "owner": "合成音乐库",
+            "license_status": "unknown",
+            "license_expiry": null
+          }
+        },
+        "summary": "读取 M07（basic）"
+      },
+      "result_summary": "读取 M07（basic）",
+      "next_action": "结束：incomplete"
+    }
+  ],
+  "model_calls": [
+    {
+      "step": 1,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 2,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 3,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 4,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  "status": "incomplete",
+  "incomplete_reason": "MAX_STEPS_REACHED",
+  "termination_reason": null
+}

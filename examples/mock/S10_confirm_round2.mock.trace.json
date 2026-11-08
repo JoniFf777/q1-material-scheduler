@@ -1,0 +1,327 @@
+{
+  "run_id": "run-b4a4d66866e2",
+  "llm": {
+    "mode": "mock",
+    "provider": "offline",
+    "model": "scripted-mock",
+    "temperature": 0,
+    "decision_evidence": false
+  },
+  "input_file": "D:\\java\\xiaoying\\q1-material-scheduler\\examples\\inputs\\S10_confirm_round2.json",
+  "limits": {
+    "max_steps": 15,
+    "max_tool_calls": 30,
+    "max_same_call": 3
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool_call_id": "mock-1-1",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M01"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "秋季穿搭",
+          "description": "秋季日常穿搭分享",
+          "type": "video",
+          "duration_sec": 45,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": "合成内容团队",
+            "license_status": "valid",
+            "license_expiry": "2027-12-31"
+          }
+        },
+        "summary": "读取 M01（basic）"
+      },
+      "result_summary": "读取 M01（basic）",
+      "next_action": "check_rules {\"material_id\": \"M01\", \"scope\": \"basic\"}"
+    },
+    {
+      "step": 2,
+      "tool_call_id": "mock-2-1",
+      "tool": "check_rules",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M01",
+        "scope": "basic"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "material_id": "M01",
+          "scope": "basic",
+          "verdict": "pass",
+          "findings": []
+        },
+        "summary": "M01 审核 pass：未发现风险"
+      },
+      "result_summary": "M01 审核 pass：未发现风险",
+      "next_action": "query_slots {\"date\": \"2026-11-10\"}"
+    },
+    {
+      "step": 3,
+      "tool_call_id": "mock-3-1",
+      "tool": "query_slots",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "channel": "douyin",
+        "date": "2026-11-10",
+        "from": "08:00",
+        "to": "21:00"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "channel": "douyin",
+          "date": "2026-11-10",
+          "slots": [
+            {
+              "start": "08:00",
+              "status": "available"
+            },
+            {
+              "start": "09:00",
+              "status": "available"
+            },
+            {
+              "start": "10:00",
+              "status": "available"
+            },
+            {
+              "start": "11:00",
+              "status": "available"
+            },
+            {
+              "start": "12:00",
+              "status": "available"
+            },
+            {
+              "start": "13:00",
+              "status": "available"
+            },
+            {
+              "start": "14:00",
+              "status": "available"
+            },
+            {
+              "start": "15:00",
+              "status": "available"
+            },
+            {
+              "start": "16:00",
+              "status": "available"
+            },
+            {
+              "start": "17:00",
+              "status": "occupied",
+              "occupied_by": {
+                "material_id": "M92",
+                "source": "schedule"
+              }
+            },
+            {
+              "start": "18:00",
+              "status": "occupied",
+              "occupied_by": {
+                "material_id": "M90",
+                "source": "schedule"
+              }
+            },
+            {
+              "start": "19:00",
+              "status": "held_by_this_request",
+              "occupied_by": {
+                "material_id": "M01",
+                "source": "draft",
+                "draft_id": "D-7f6c48bff24f"
+              }
+            },
+            {
+              "start": "20:00",
+              "status": "available"
+            },
+            {
+              "start": "21:00",
+              "status": "available"
+            }
+          ]
+        },
+        "summary": "08:00 available；09:00 available；10:00 available；11:00 available；12:00 available；13:00 available；14:00 available；15:00 available；16:00 available；17:00 occupied(M92)；18:00 occupied(M90)；19:00 held_by_this_request(M01)；20:00 available；21:00 available"
+      },
+      "result_summary": "08:00 available；09:00 available；10:00 available；11:00 available；12:00 available；13:00 available；14:00 available；15:00 available；16:00 available；17:00 occupied(M92)；18:00 occupied(M90)；19:00 held_by_this_request(M01)；20:00 available；21:00 available",
+      "next_action": "request_confirmation {\"material_id\": \"M01\", \"proposed_slot\": \"2026-11-10T19:00\"}"
+    },
+    {
+      "step": 4,
+      "tool_call_id": "mock-4-1",
+      "tool": "request_confirmation",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M01",
+        "type": "time_change",
+        "question": "18:00 被 M90 占用，是否改到 19:00？",
+        "options": [
+          "同意",
+          "补充信息或拒绝"
+        ],
+        "proposed_slot": "2026-11-10T19:00"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "confirmation_id": "C-cb7a91b624",
+          "status": "confirmed",
+          "user_reply": "同意改到19点"
+        },
+        "summary": "M01 time_change：confirmed"
+      },
+      "result_summary": "M01 time_change：confirmed",
+      "next_action": "save_schedule_draft {}"
+    },
+    {
+      "step": 5,
+      "tool_call_id": "mock-5-1",
+      "tool": "save_schedule_draft",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "items": [
+          {
+            "material_id": "M01",
+            "review_status": "approved",
+            "risk_reasons": [],
+            "slot": {
+              "channel": "douyin",
+              "start": "2026-11-10T19:00"
+            },
+            "confirmation_status": "confirmed",
+            "confirmation_ids": [
+              "C-cb7a91b624"
+            ]
+          }
+        ]
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "draft_id": "D-7f6c48bff24f",
+          "version": 2,
+          "result": "updated",
+          "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\mock\\batch-b18ec379c6ba\\repeat-1\\S10_confirm_round2\\drafts.json"
+        },
+        "summary": "草稿 updated（v2，未发布）"
+      },
+      "result_summary": "草稿 updated（v2，未发布）",
+      "next_action": "submit_report {}"
+    },
+    {
+      "step": 6,
+      "tool_call_id": "mock-6-1",
+      "tool": "submit_report",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "items": [
+          {
+            "material_id": "M01",
+            "review_status": "approved",
+            "risk_reasons": [],
+            "suggested_slot": "2026-11-10T19:00",
+            "confirmation_status": "confirmed",
+            "pending_items": []
+          }
+        ],
+        "overall_note": "仅生成草稿，未发布"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "accepted": true
+        },
+        "summary": "报告已接收；保存状态以工具记录为准"
+      },
+      "result_summary": "报告已接收；保存状态以工具记录为准",
+      "next_action": "结束：completed"
+    }
+  ],
+  "model_calls": [
+    {
+      "step": 1,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 2,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 3,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 4,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 5,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 6,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  "status": "completed",
+  "incomplete_reason": null,
+  "termination_reason": null
+}

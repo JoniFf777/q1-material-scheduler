@@ -33,9 +33,9 @@
 
 ## 阶段 3：CLI 与场景（30 分钟）
 
-- [ ] CLI：`run`（`--input --llm --state-dir --data-dir --max-steps --max-tool-calls --fault --out`）、`drafts list/show`、`reset`
-- [ ] 10 个场景文件，每个都带 `expect`
-- [ ] `scripts/run_scenarios.py`：执行组合场景、`--repeat`、`--only`，生成 summary
+- [x] CLI：`run`（`--input --llm --state-dir --data-dir --max-steps --max-tool-calls --fault --out`）、`drafts list/show`、`reset`
+- [x] 10 个场景文件，每个都带 `expect`
+- [x] `scripts/run_scenarios.py`：执行组合场景、`--repeat`、`--only`，生成 summary
 - **完成标准**：`python scripts/run_scenarios.py --llm mock` 能把全部场景跑完（mock 下断言可能不全通过，但流程不能报错）
 
 ## 阶段 4：真实模型跑通（30 分钟，这一步你要亲自参与）

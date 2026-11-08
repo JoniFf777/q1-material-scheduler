@@ -70,3 +70,19 @@ def test_deep_content_checks_do_not_erase_other_findings(ctx, registry):
     assert checked(registry, ctx)["data"]["verdict"] == "pass"
     assert call(registry, ctx, "check_rules", material_id="M02", scope="content")["data"]["verdict"] == "block"
     assert call(registry, ctx, "check_rules", material_id="M02", scope="basic")["data"]["verdict"] == "block"
+
+
+def test_invalid_license_and_missing_music_license_are_not_pass(ctx, registry):
+    ctx.repo.materials["M02"]["copyright"]["license_status"] = "unrecognized"
+    assert checked(registry, ctx)["data"]["verdict"] == "need_info"
+    ctx.repo.materials["M01"]["music"] = {"owner": "合成音乐库"}
+    ctx.request["items"].append(requirement("M01"))
+    assert checked(registry, ctx, "M01")["data"]["verdict"] == "need_info"
+
+
+def test_pending_scope_cannot_silently_switch_user_channel(ctx, registry):
+    ctx.request = {"scope": "pending", "defaults": {"channel": "douyin", "preferred_time": "2026-11-10T20:00"}}
+    assert call(registry, ctx, "list_pending_materials", channel="xiaohongshu")["error_code"] == "INVALID_ARGUMENTS"
+    obs = call(registry, ctx, "list_pending_materials")
+    assert obs["ok"] and "M05" not in {m["material_id"] for m in obs["data"]["materials"]}
+    assert len(ctx.items) == len(obs["data"]["materials"])

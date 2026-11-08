@@ -2,11 +2,16 @@ from .common import ok, error
 
 
 def list_pending_materials(ctx, channel=None):
+    defaults = ctx.request.get("defaults", {})
+    if ctx.request.get("scope") == "pending":
+        requested_channel = defaults.get("channel")
+        if channel is not None and channel != requested_channel:
+            return error("INVALID_ARGUMENTS", "待处理素材的渠道必须与用户的 defaults.channel 一致")
+        channel = requested_channel
     materials = [{"material_id": mid, "title": m["title"], "status": "pending_review"}
                  for mid, m in ctx.repo.materials.items()
                  if not channel or channel in m.get("channels", [])]
     if ctx.request.get("scope") == "pending":
-        defaults = ctx.request.get("defaults", {})
         if not all(k in defaults for k in ("channel", "preferred_time")):
             return error("INVALID_ARGUMENTS", "scope=pending 需要 defaults.channel 和 defaults.preferred_time")
         ctx.request["items"] = [dict(defaults, material_id=m["material_id"],

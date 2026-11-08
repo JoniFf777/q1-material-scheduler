@@ -28,6 +28,8 @@ def run(ctx, llm, limits=None, registry=None, input_file=None, today="2026-11-08
         except ModelUnavailable as exc:
             # ModelUnavailable carries a sanitized error code, never raw API text.
             return finish(termination="MODEL_UNAVAILABLE:" + str(exc))
+        except Exception as exc:
+            return finish(termination="MODEL_ERROR:" + type(exc).__name__)
         trace.model_call(step, response)
         messages.append(response.message())
         if not response.tool_calls:

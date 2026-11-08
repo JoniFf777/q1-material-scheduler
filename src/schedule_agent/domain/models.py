@@ -24,5 +24,6 @@ class Limits:
     max_same_call: int = 3
 
     def __post_init__(self):
-        if min(self.max_steps, self.max_tool_calls, self.max_same_call) < 1:
+        values = (self.max_steps, self.max_tool_calls, self.max_same_call)
+        if any(type(value) is not int or value < 1 for value in values):
             raise ValueError("limits must be positive")

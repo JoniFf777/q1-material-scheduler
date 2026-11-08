@@ -29,11 +29,21 @@ def check_invariants(result, trace, request, store, confirmations=None):
             errors.append(f"I4: {mid} fixed 时间被改变")
         if item["review_status"] in ("blocked", "need_info") and start:
             errors.append(f"I5: {mid} 不可排期却带时段")
-    drafts = store.read()["drafts"]
+    try:
+        drafts = store.read()["drafts"]
+    except (OSError, ValueError, KeyError):
+        errors.append("I6: 草稿库不可验证")
+        drafts = []
     keys = [d["idempotency_key"] for d in drafts]
     if len(keys) != len(set(keys)):
         errors.append("I6: 幂等键重复")
     limit = result.get("incomplete_reason") in ("MAX_STEPS_REACHED", "MAX_TOOL_CALLS_REACHED")
     if (result["status"] == "incomplete") != limit:
         errors.append("I7: incomplete 与限额终止不一致")
+    if limit:
+        reason = result["incomplete_reason"]
+        reached = ((reason == "MAX_STEPS_REACHED" and len(trace["model_calls"]) >= trace["limits"]["max_steps"])
+                   or (reason == "MAX_TOOL_CALLS_REACHED" and len(trace["steps"]) >= trace["limits"]["max_tool_calls"]))
+        if not reached:
+            errors.append("I7: 记录中未达到指定限额")
     return errors

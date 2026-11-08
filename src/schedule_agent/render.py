@@ -2,7 +2,13 @@ from .trace import safe_text
 
 
 def render_result(result):
-    lines = [f"运行状态：{result['status']}", f"草稿保存：{result['draft_save']['status']}"]
+    save = result["draft_save"]["status"]
+    pending = any(i["confirmation_status"] == "pending" for i in result["items"])
+    save_text = {"created": "草稿已保存（待确认，未发布）" if pending else "草稿已保存（未发布）",
+                 "updated": "草稿已更新（待确认，未发布）" if pending else "草稿已更新（未发布）",
+                 "duplicate": "已存在相同草稿，未重复创建（未发布）",
+                 "failed": "草稿保存失败", "not_saved": "草稿未保存"}[save]
+    lines = [f"运行状态：{result['status']}", f"{save_text}；保存结果：{save}"]
     if result["draft_save"].get("error_code"):
         lines.append("保存错误：" + result["draft_save"]["error_code"])
     if result.get("failure_reason") or result.get("incomplete_reason"):

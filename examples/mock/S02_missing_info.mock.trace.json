@@ -1,0 +1,387 @@
+{
+  "run_id": "run-f6960deb631d",
+  "llm": {
+    "mode": "mock",
+    "provider": "offline",
+    "model": "scripted-mock",
+    "temperature": 0,
+    "decision_evidence": false
+  },
+  "input_file": "D:\\java\\xiaoying\\q1-material-scheduler\\examples\\inputs\\S02_missing_info.json",
+  "limits": {
+    "max_steps": 15,
+    "max_tool_calls": 30,
+    "max_same_call": 3
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool_call_id": "mock-1-1",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M03"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "新品开箱",
+          "description": "演示新品开箱",
+          "type": "video",
+          "duration_sec": null,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": null,
+            "license_status": null,
+            "license_expiry": null
+          }
+        },
+        "summary": "读取 M03（basic）"
+      },
+      "result_summary": "读取 M03（basic）",
+      "next_action": "get_material {\"material_id\": \"M08\"}"
+    },
+    {
+      "step": 1,
+      "tool_call_id": "mock-1-2",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M08"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": false,
+      "observation": {
+        "ok": false,
+        "error_code": "NOT_FOUND",
+        "message": "素材 M08 不存在",
+        "retryable": false
+      },
+      "result_summary": "素材 M08 不存在",
+      "next_action": "check_rules {\"material_id\": \"M03\", \"scope\": \"basic\"}"
+    },
+    {
+      "step": 2,
+      "tool_call_id": "mock-2-1",
+      "tool": "check_rules",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M03",
+        "scope": "basic"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "material_id": "M03",
+          "scope": "basic",
+          "verdict": "need_info",
+          "findings": [
+            {
+              "rule_id": "R01",
+              "severity": "need_info",
+              "message": "缺少 copyright.owner"
+            },
+            {
+              "rule_id": "R01",
+              "severity": "need_info",
+              "message": "缺少 copyright.license_status"
+            },
+            {
+              "rule_id": "R01",
+              "severity": "need_info",
+              "message": "缺少 duration_sec"
+            }
+          ]
+        },
+        "summary": "M03 审核 need_info：缺少 copyright.owner；缺少 copyright.license_status；缺少 duration_sec"
+      },
+      "result_summary": "M03 审核 need_info：缺少 copyright.owner；缺少 copyright.license_status；缺少 duration_sec",
+      "next_action": "get_material {\"material_id\": \"M03\"}"
+    },
+    {
+      "step": 3,
+      "tool_call_id": "mock-3-1",
+      "tool": "get_material",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M03",
+        "detail": "full"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "新品开箱",
+          "description": "演示新品开箱",
+          "type": "video",
+          "duration_sec": 62,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": null,
+            "license_status": null,
+            "license_expiry": null
+          },
+          "extended": {
+            "duration_sec": 62,
+            "copyright_owner": null
+          }
+        },
+        "summary": "读取 M03（full）"
+      },
+      "result_summary": "读取 M03（full）",
+      "next_action": "check_rules {\"material_id\": \"M03\", \"scope\": \"basic\"}"
+    },
+    {
+      "step": 4,
+      "tool_call_id": "mock-4-1",
+      "tool": "check_rules",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M03",
+        "scope": "basic"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "material_id": "M03",
+          "scope": "basic",
+          "verdict": "need_info",
+          "findings": [
+            {
+              "rule_id": "R01",
+              "severity": "need_info",
+              "message": "缺少 copyright.owner"
+            },
+            {
+              "rule_id": "R01",
+              "severity": "need_info",
+              "message": "缺少 copyright.license_status"
+            }
+          ]
+        },
+        "summary": "M03 审核 need_info：缺少 copyright.owner；缺少 copyright.license_status"
+      },
+      "result_summary": "M03 审核 need_info：缺少 copyright.owner；缺少 copyright.license_status",
+      "next_action": "request_confirmation {\"material_id\": \"M03\"}"
+    },
+    {
+      "step": 5,
+      "tool_call_id": "mock-5-1",
+      "tool": "request_confirmation",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M03",
+        "type": "info_needed",
+        "question": "请补充版权方和授权状态。",
+        "options": [
+          "同意",
+          "补充信息或拒绝"
+        ]
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "confirmation_id": "C-849768b35c",
+          "status": "pending"
+        },
+        "summary": "M03 info_needed：pending"
+      },
+      "result_summary": "M03 info_needed：pending",
+      "next_action": "request_confirmation {\"material_id\": \"M08\"}"
+    },
+    {
+      "step": 5,
+      "tool_call_id": "mock-5-2",
+      "tool": "request_confirmation",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "material_id": "M08",
+        "type": "info_needed",
+        "question": "素材 M08 不存在，请提供正确的素材 ID。",
+        "options": [
+          "同意",
+          "补充信息或拒绝"
+        ]
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "confirmation_id": "C-d04efbe430",
+          "status": "pending"
+        },
+        "summary": "M08 info_needed：pending"
+      },
+      "result_summary": "M08 info_needed：pending",
+      "next_action": "save_schedule_draft {}"
+    },
+    {
+      "step": 6,
+      "tool_call_id": "mock-6-1",
+      "tool": "save_schedule_draft",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "items": [
+          {
+            "material_id": "M03",
+            "review_status": "need_info",
+            "risk_reasons": [],
+            "slot": null,
+            "confirmation_status": "pending",
+            "confirmation_ids": [
+              "C-849768b35c"
+            ]
+          },
+          {
+            "material_id": "M08",
+            "review_status": "need_info",
+            "risk_reasons": [],
+            "slot": null,
+            "confirmation_status": "pending",
+            "confirmation_ids": [
+              "C-d04efbe430"
+            ]
+          }
+        ]
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "draft_id": "D-50216fe53bee",
+          "version": 1,
+          "result": "created",
+          "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\mock\\batch-b18ec379c6ba\\repeat-1\\S02_missing_info\\drafts.json"
+        },
+        "summary": "草稿 created（v1，未发布）"
+      },
+      "result_summary": "草稿 created（v1，未发布）",
+      "next_action": "submit_report {}"
+    },
+    {
+      "step": 7,
+      "tool_call_id": "mock-7-1",
+      "tool": "submit_report",
+      "args": {
+        "reason": "离线脚本验证此步骤",
+        "items": [
+          {
+            "material_id": "M03",
+            "review_status": "need_info",
+            "risk_reasons": [],
+            "suggested_slot": null,
+            "confirmation_status": "pending",
+            "pending_items": []
+          },
+          {
+            "material_id": "M08",
+            "review_status": "need_info",
+            "risk_reasons": [],
+            "suggested_slot": null,
+            "confirmation_status": "pending",
+            "pending_items": []
+          }
+        ],
+        "overall_note": "仅生成草稿，未发布"
+      },
+      "reason": "离线脚本验证此步骤",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "accepted": true
+        },
+        "summary": "报告已接收；保存状态以工具记录为准"
+      },
+      "result_summary": "报告已接收；保存状态以工具记录为准",
+      "next_action": "结束：completed_with_pending"
+    }
+  ],
+  "model_calls": [
+    {
+      "step": 1,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 2
+    },
+    {
+      "step": 2,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 3,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 4,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 5,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 2
+    },
+    {
+      "step": 6,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 7,
+      "model": null,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "tool_calls": 1
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  "status": "completed_with_pending",
+  "incomplete_reason": null,
+  "termination_reason": null
+}

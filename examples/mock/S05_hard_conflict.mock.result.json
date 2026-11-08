@@ -1,0 +1,33 @@
+{
+  "run_id": "run-8a2998c76aa8",
+  "request_key": "RQ-4f2af2dcc59d",
+  "items": [
+    {
+      "material_id": "M06",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "20:00 被 M91 占用，请决定是否提出新的时间要求。"
+      ],
+      "confirmation_ids": [
+        "C-2e4381ef17"
+      ],
+      "draft_save_status": "created"
+    }
+  ],
+  "draft_save": {
+    "status": "created",
+    "draft_id": "D-4f2af2dcc59d",
+    "version": 1,
+    "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\mock\\batch-b18ec379c6ba\\repeat-1\\S05_hard_conflict\\drafts.json"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "completed_with_pending",
+  "invariant_errors": []
+}

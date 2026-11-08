@@ -1,5 +1,5 @@
 {
-  "run_id": "run-6b2a900bd3b8",
+  "run_id": "run-301bb5b73a8f",
   "request_key": "RQ-7f6c48bff24f",
   "items": [
     {
@@ -23,7 +23,7 @@
     "status": "created",
     "draft_id": "D-7f6c48bff24f",
     "version": 1,
-    "store_file": "runtime\\phase2-s04\\drafts.json"
+    "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\mock\\batch-b18ec379c6ba\\repeat-1\\conflict-sequence\\drafts.json"
   },
   "publish_action": "none",
   "consistency_warnings": [],

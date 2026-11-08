@@ -1,5 +1,5 @@
 {
-  "run_id": "run-6b2a900bd3b8",
+  "run_id": "run-301bb5b73a8f",
   "llm": {
     "mode": "mock",
     "provider": "offline",
@@ -7,7 +7,7 @@
     "temperature": 0,
     "decision_evidence": false
   },
-  "input_file": "examples/inputs/S04_slot_conflict.json",
+  "input_file": "D:\\java\\xiaoying\\q1-material-scheduler\\examples\\inputs\\S04_slot_conflict.json",
   "limits": {
     "max_steps": 15,
     "max_tool_calls": 30,
@@ -181,7 +181,7 @@
           "draft_id": "D-7f6c48bff24f",
           "version": 1,
           "result": "created",
-          "store_file": "runtime\\phase2-s04\\drafts.json"
+          "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\mock\\batch-b18ec379c6ba\\repeat-1\\conflict-sequence\\drafts.json"
         },
         "summary": "草稿 created（v1，未发布）"
       },

@@ -1,0 +1,19 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.9, pytest-9.2.0, pluggy-1.7.0
+rootdir: D:\java\xiaoying\q1-material-scheduler
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collected 74 items
+
+tests\test_agent_loop.py .............                                   [ 17%]
+tests\test_cli.py ..............                                         [ 36%]
+tests\test_draft_store.py ....                                           [ 41%]
+tests\test_fingerprint.py ..                                             [ 44%]
+tests\test_guards.py .................                                   [ 67%]
+tests\test_llm_client.py ..                                              [ 70%]
+tests\test_scaffold.py .                                                 [ 71%]
+tests\test_scenarios.py ............                                     [ 87%]
+tests\test_tools.py .........                                            [100%]
+
+============================= 74 passed in 9.47s ==============================

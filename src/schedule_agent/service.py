@@ -12,10 +12,12 @@ from .store.draft_store import DraftStore
 from .store.seed_repo import SeedRepo
 from .tools.registry import ToolRegistry
 from .trace import write_artifacts
+from .input import validate_scenario
 
 
 def execute(scenario, mode="mock", state_dir="runtime/default", data_dir="data",
             out=None, input_file=None, limits=None, faults=None, mock_script=None):
+    scenario = validate_scenario(scenario)
     setup = scenario.get("setup", {})
     repo = SeedRepo(data_dir, setup.get("schedule_patch"))
     store = DraftStore(state_dir)
