@@ -48,4 +48,11 @@ def evaluate(scenario, result, trace, ctx):
         attempts = [s for s in steps if s["tool"] == "save_schedule_draft"]
         if len(attempts) != 2:
             errors.append("保存失败应尝试一次、重试一次")
+    if name == "S09_step_limit":
+        # Model turns may contain several calls. Only materials without a rule
+        # result or a trusted NOT_FOUND fact remain unreviewed at the limit.
+        for item in result["items"]:
+            mid = item["material_id"]
+            if mid not in ctx.checked and mid not in ctx.missing and item["review_status"] != "unknown":
+                errors.append(f"{mid}：未审核的素材必须为 unknown")
     return errors

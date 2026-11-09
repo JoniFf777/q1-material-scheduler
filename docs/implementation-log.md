@@ -14,3 +14,8 @@
 - 阶段 3：pytest 74/74；11 个 Mock 场景全部通过，实际结果与 JSON/Markdown Trace 已保存到 examples/mock。CLI 手动串行运行 S04→S06→S06b，得到 created v1→duplicate v1→updated v2，最终只有一份草稿。
 - 收尾检查：pip check 无依赖冲突；本地文档链接有效；未发现密钥模式；.env 与 runtime 被 Git 忽略。live API 未调用，docs/04 与 docs/05 保留给本人填写。
 - 本轮离线实现与验证时段：2026-11-08 23:42 至 2026-11-09 00:08（Asia/Shanghai，约 26 分钟；不是候选人的个人实际用时）。阶段 4、完整交付文档与 GitHub 提交仍待完成。
+- 阶段 4 开始：2026-11-09 14:10（Asia/Shanghai）。候选人在本机配置 Key 并手动运行 S04；实际返回 deepseek-flash，26,535 tokens，19:00 / pending / created；原始证据保留为 examples/live/manual-S04_slot_conflict.*。
+- 手动 S04 中，模型把时间调整待确认混成审核 needs_confirmation；guards 拒绝后模型修正 approved。报告的时间字段另带 douyin 前缀，结果组装采用已保存的标准时间并保留 warning。
+- 批量运行前发现执行环境使用 SOCKS 代理，缺少 socksio 导致客户端初始化失败，尚未调用模型。补齐并显式声明 httpx[socks]，不记录代理地址和 Key。
+- 修正前真实模型评估为 30/33；3 次失败均为 S09 评估器硬编码 M07=unknown，而模型通过批量调用已经完成其审核。真实行为均为 4 轮后 incomplete / MAX_STEPS_REACHED / not_saved。原始汇总和 S09 Trace 已保留，没有覆盖原始失败记录。
+- 根据 spec/06“未处理素材为 unknown”，移除生成场景中对特定 M07 的错误断言，改为从本次工具事实核验所有未审核素材。没有修改 spec/ 或业务循环。新增回归测试修正前为 1 failed / 1 passed；修正后将重新运行完整评估。

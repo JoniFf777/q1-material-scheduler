@@ -121,7 +121,7 @@ def build():
              finish(read_rounds([r2]) + [round_(query(r2)), round_(query(r2))], [normal]), {"faults": {"query_slots": "once"}})
     reqs = [r1, r2, r4, r7]
     script = [round_(action("get_material", material_id=r["material_id"])) for r in reqs]
-    scenario("S09_step_limit", reqs, {"status": "incomplete", "incomplete_reason": "MAX_STEPS_REACHED", "draft_result": "not_saved", "M07": {"review_status": "unknown"}}, script, {"limits": {"max_steps": 4}})
+    scenario("S09_step_limit", reqs, {"status": "incomplete", "incomplete_reason": "MAX_STEPS_REACHED", "draft_result": "not_saved"}, script, {"limits": {"max_steps": 4}})
     confirmed = copy.deepcopy(alt)
     confirmed["confirmation_status"] = "confirmed"
     scenario("S10_confirm_round2", [r1], {"M01": {"suggested_slot": "2026-11-10T19:00", "confirmation_status": "confirmed"}, "draft_result": "updated", "version": 2, "draft_count": 1, "status": "completed"},

@@ -1,0 +1,65 @@
+{
+  "run_id": "run-e4e788d83491",
+  "request_key": "RQ-d7f02a39236f",
+  "items": [
+    {
+      "material_id": "M01",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "not_required",
+      "pending_items": [],
+      "confirmation_ids": [],
+      "draft_save_status": "not_saved"
+    },
+    {
+      "material_id": "M02",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "not_required",
+      "pending_items": [],
+      "confirmation_ids": [],
+      "draft_save_status": "not_saved"
+    },
+    {
+      "material_id": "M04",
+      "review_status": "blocked",
+      "risk_reasons": [
+        "music 授权已过期（2026-10-31）"
+      ],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "not_required",
+      "pending_items": [],
+      "confirmation_ids": [],
+      "draft_save_status": "not_saved"
+    },
+    {
+      "material_id": "M07",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "not_required",
+      "pending_items": [],
+      "confirmation_ids": [],
+      "draft_save_status": "not_saved"
+    }
+  ],
+  "draft_save": {
+    "status": "not_saved"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "incomplete",
+  "incomplete_reason": "MAX_STEPS_REACHED",
+  "invariant_errors": []
+}

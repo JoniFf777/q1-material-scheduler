@@ -4,16 +4,17 @@ rootdir: D:\java\xiaoying\q1-material-scheduler
 configfile: pyproject.toml
 testpaths: tests
 plugins: anyio-4.16.0
-collected 74 items
+collected 76 items
 
 tests\test_agent_loop.py .............                                   [ 17%]
-tests\test_cli.py ..............                                         [ 36%]
-tests\test_draft_store.py ....                                           [ 41%]
-tests\test_fingerprint.py ..                                             [ 44%]
-tests\test_guards.py .................                                   [ 67%]
-tests\test_llm_client.py ..                                              [ 70%]
-tests\test_scaffold.py .                                                 [ 71%]
-tests\test_scenarios.py ............                                     [ 87%]
+tests\test_cli.py ..............                                         [ 35%]
+tests\test_draft_store.py ....                                           [ 40%]
+tests\test_evaluation.py ..                                              [ 43%]
+tests\test_fingerprint.py ..                                             [ 46%]
+tests\test_guards.py .................                                   [ 68%]
+tests\test_llm_client.py ..                                              [ 71%]
+tests\test_scaffold.py .                                                 [ 72%]
+tests\test_scenarios.py ............                                     [ 88%]
 tests\test_tools.py .........                                            [100%]
 
-============================= 74 passed in 9.47s ==============================
+============================= 76 passed in 13.55s =============================

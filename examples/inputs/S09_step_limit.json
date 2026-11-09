@@ -58,9 +58,6 @@
   "expect": {
     "status": "incomplete",
     "incomplete_reason": "MAX_STEPS_REACHED",
-    "draft_result": "not_saved",
-    "M07": {
-      "review_status": "unknown"
-    }
+    "draft_result": "not_saved"
   }
 }
