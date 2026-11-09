@@ -1,10 +1,14 @@
 # 素材审核与排期草稿 Agent
 
+题号：第一题。公开仓库：[JoniFf777/q1-material-scheduler](https://github.com/JoniFf777/q1-material-scheduler)。
+
 Python 3.10+，CLI，模型负责决策，代码校验红线。实现规格见 [spec/README.md](spec/README.md)。
 
 安装（Windows PowerShell）：
 
 ```powershell
+git clone https://github.com/JoniFf777/q1-material-scheduler.git
+Set-Location q1-material-scheduler
 py -3.10 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[test]"
 .\.venv\Scripts\schedule-agent.exe --help
@@ -27,7 +31,7 @@ New-Item -ItemType Directory -Force runtime | Out-Null
 
 预期 M01 建议 `2026-11-10T19:00`、`alternative`、`pending`，显示“草稿已保存（待确认，未发布）”。输出前缀生成 `.result.json`、`.trace.json`、`.trace.md`；草稿在状态目录的 `drafts.json`。
 
-macOS/Linux 可使用 `python3 -m venv .venv`，将可执行路径换为 `.venv/bin/python` 和 `.venv/bin/schedule-agent`。Windows 沙箱使用仓库内 pytest 临时目录可避开系统临时目录的替换权限限制。
+macOS/Linux 可使用 `python3 -m venv .venv`，将可执行路径换为 `.venv/bin/python` 和 `.venv/bin/schedule-agent`，创建目录命令换为 `mkdir -p runtime`。Windows 沙箱使用仓库内 pytest 临时目录可避开系统临时目录的替换权限限制。
 
 ## 真实模型
 
@@ -82,3 +86,5 @@ run 支持 `--input --llm --state-dir --data-dir --max-steps --max-tool-calls --
 实现说明见[需求](docs/01-requirements.md)、[方案与代码防线](docs/02-solution.md)、[评估](docs/03-evaluation.md)、[执行记录](docs/implementation-log.md)。JSON 存储没有跨进程锁，生产环境需要事务和唯一约束。当前没有自然语言解析、真实发布、HTTP 服务或终端交互确认；时段粒度为整点。
 
 [AI 使用说明](docs/04-ai-usage.md)与[项目复盘](docs/05-retrospective.md)由 Codex 按候选人授权、实际操作和运行证据协助整理，个人贡献与 AI 辅助范围已分别说明。
+
+提交评审时填写题号、上方 GitHub URL 和 `git rev-parse HEAD` 返回的完整 commit SHA，以锁定评审版本。

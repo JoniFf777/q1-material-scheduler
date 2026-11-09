@@ -72,4 +72,4 @@
 - [x] `git grep -n "sk-"`，以及搜一遍 Key 的常见前缀，确认没有提交密钥；`.env` 没有进仓库
 - [x] 03-evaluation 里引用的每个文件路径都真实存在
 - [x] 06 第 1 节的所有场景都有对应的 live 文件，或者在文档里说明了为什么没有
-- [ ] 提交信息里写上：题号（第一题）、GitHub URL、最终 commit SHA
+- [x] 提交信息里写上：题号（第一题）、GitHub URL、最终 commit SHA
