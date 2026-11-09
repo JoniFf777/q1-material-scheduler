@@ -40,10 +40,10 @@
 
 ## 阶段 4：真实模型跑通（30 分钟，这一步你要亲自参与）
 
-- [ ] 填好 `.env`，先单独跑 S04，核对是不是 19:00、待确认、没有"已发布"
-- [ ] `run_scenarios.py --llm live --repeat 3`
-- [ ] 失败的用例：先判断是提示词问题还是代码问题，修正后重跑。**每一次修正都记下来**，这是 03 和 05 最好的素材
-- [ ] 把 live 结果和 Trace 存进 `examples/live/`，pytest 输出存进 `examples/results/pytest.txt`
+- [x] 填好 `.env`，先单独跑 S04，核对是不是 19:00、待确认、没有"已发布"
+- [x] `run_scenarios.py --llm live --repeat 3`
+- [x] 失败的用例：先判断是提示词问题还是代码问题，修正后重跑。**每一次修正都记下来**，这是 03 和 05 最好的素材
+- [x] 把 live 结果和 Trace 存进 `examples/live/`，pytest 输出存进 `examples/results/pytest.txt`
 - **完成标准**：A1–A6 在 live 下都有至少 1 次通过的 Trace；I1–I7 的不变式在所有 live 运行中都没有被违反
 
 ## 阶段 5：文档（25 分钟）
@@ -68,8 +68,8 @@
 
 ## 提交前检查
 
-- [ ] 新克隆一份仓库，按 README 从零执行一遍：安装 → pytest → mock 运行 → live 运行
-- [ ] `git grep -n "sk-"`，以及搜一遍 Key 的常见前缀，确认没有提交密钥；`.env` 没有进仓库
-- [ ] 03-evaluation 里引用的每个文件路径都真实存在
-- [ ] 06 第 1 节的所有场景都有对应的 live 文件，或者在文档里说明了为什么没有
+- [x] 新克隆一份仓库，按 README 从零执行一遍：安装 → pytest → mock 运行 → live 运行
+- [x] `git grep -n "sk-"`，以及搜一遍 Key 的常见前缀，确认没有提交密钥；`.env` 没有进仓库
+- [x] 03-evaluation 里引用的每个文件路径都真实存在
+- [x] 06 第 1 节的所有场景都有对应的 live 文件，或者在文档里说明了为什么没有
 - [ ] 提交信息里写上：题号（第一题）、GitHub URL、最终 commit SHA

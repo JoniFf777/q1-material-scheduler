@@ -1,0 +1,12 @@
+{
+  "python": "3.10.9",
+  "platform": "Windows",
+  "packages": {
+    "openai": "2.54.0",
+    "python-dotenv": "1.2.4",
+    "jsonschema": "4.26.0",
+    "httpx": "0.28.1",
+    "socksio": "1.0.0",
+    "pytest": "9.2.0"
+  }
+}

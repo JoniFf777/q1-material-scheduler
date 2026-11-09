@@ -1,0 +1,21 @@
+# 运行 Trace
+
+模式：live；模型：deepseek-flash；状态：completed_with_pending
+
+| 步骤 | 动作 | 参数 | 返回摘要 | 后续动作 | 决策依据 |
+|---|---|---|---|---|---|
+| 1 | get_material | {"material_id": "M04", "detail": "basic", "reason": "读取M04基础信息"} | 读取 M04（basic） | get_material {"material_id": "M05"} | 读取M04基础信息 |
+| 1 | get_material | {"material_id": "M05", "detail": "basic", "reason": "读取M05基础信息"} | 读取 M05（basic） | get_material {"material_id": "M07"} | 读取M05基础信息 |
+| 1 | get_material | {"material_id": "M07", "detail": "basic", "reason": "读取M07基础信息"} | 读取 M07（basic） | check_rules {"material_id": "M04", "scope": "basic"} | 读取M07基础信息 |
+| 2 | check_rules | {"material_id": "M04", "scope": "basic", "publish_date": "2026-11-10", "reason": "审核M04基础规则"} | M04 审核 uncertain：music 授权状态未知 | check_rules {"material_id": "M05", "scope": "basic"} | 审核M04基础规则 |
+| 2 | check_rules | {"material_id": "M05", "scope": "basic", "publish_date": "2026-11-10", "reason": "审核M05基础规则"} | M05 审核 confirm：用语风险：第一 | check_rules {"material_id": "M07", "scope": "basic"} | 审核M05基础规则 |
+| 2 | check_rules | {"material_id": "M07", "scope": "basic", "publish_date": "2026-11-10", "reason": "审核M07基础规则"} | M07 审核 uncertain：music 授权状态未知 | check_rules {"material_id": "M04", "scope": "license"} | 审核M07基础规则 |
+| 3 | check_rules | {"material_id": "M04", "publish_date": "2026-11-10", "reason": "深查M04音乐授权", "scope": "license"} | M04 审核 block：music 授权已过期（2026-10-31） | check_rules {"material_id": "M07", "scope": "license"} | 深查M04音乐授权 |
+| 3 | check_rules | {"material_id": "M07", "publish_date": "2026-11-10", "reason": "深查M07音乐授权", "scope": "license"} | M07 审核 pass：未发现风险 | query_slots {"date": "2026-11-10"} | 深查M07音乐授权 |
+| 4 | query_slots | {"channel": "xiaohongshu", "date": "2026-11-10", "from": "09:00", "to": "21:00", "reason": "查M05可用时段"} | 09:00 available；10:00 available；11:00 available；12:00 available；13:00 available；14:00 available；15:00 available；16:00 available；17:00 available；18:00 available；19:00 available；20:00 available；21:00 available | query_slots {"date": "2026-11-10"} | 查M05可用时段 |
+| 4 | query_slots | {"channel": "douyin", "date": "2026-11-10", "from": "12:00", "to": "21:00", "reason": "查M07可用时段"} | 12:00 available；13:00 available；14:00 available；15:00 available；16:00 available；17:00 occupied(M92)；18:00 occupied(M90)；19:00 available；20:00 available；21:00 available | request_confirmation {"material_id": "M05"} | 查M07可用时段 |
+| 5 | request_confirmation | {"material_id": "M05", "options": ["已知悉用语风险，仍按 2026-11-10 12:00 排期", "更换标题后再排期", "暂不排期"], "question": "M05 标题含\"全网第一\"用语风险（R04），是否确认接受风险并按 2026-11-10 12:00（xiaohongshu）排期？", "reason": "M05用语风险需登记确认", "type": "risk_ack"} | M05 risk_ack：pending | save_schedule_draft {} | M05用语风险需登记确认 |
+| 6 | save_schedule_draft | {"items": [{"material_id": "M04", "review_status": "blocked", "risk_reasons": ["music 授权已过期（2026-10-31）"], "slot": null, "confirmation_status": "not_required", "confirmation_ids": []}, {"material_id": "M05", "review_status": "needs_confirmation", "risk_reasons": ["用语风险：第一"], "slot": {"channel": "xiaohongshu", "start": "2026-11-10T12:00"}, "confirmation_status": "pending", "confirmation_ids": ["C-1ad5c3fa5f"]}, {"material_id": "M07", "review_status": "approved", "risk_reasons": [], "slot": {"channel": "douyin", "start": "2026-11-10T21:00"}, "confirmation_status": "not_required", "confirmation_ids": []}], "reason": "保存三条素材草稿结果"} | 草稿 created（v1，未发布） | submit_report {} | 保存三条素材草稿结果 |
+| 7 | submit_report | {"items": [{"material_id": "M04", "review_status": "blocked", "risk_reasons": ["music 授权已过期（2026-10-31）"], "suggested_slot": null, "confirmation_status": "not_required", "pending_items": ["music 授权续期或替换音乐后再审"]}, {"material_id": "M05", "review_status": "needs_confirmation", "risk_reasons": ["用语风险：第一"], "suggested_slot": "2026-11-10T12:00 (xiaohongshu)", "confirmation_status": "pending", "pending_items": ["风险确认待用户答复（C-1ad5c3fa5f）：是否接受“第一”用语风险"]}, {"material_id": "M07", "review_status": "approved", "risk_reasons": [], "suggested_slot": "2026-11-10T21:00 (douyin)", "confirmation_status": "not_required", "pending_items": []}], "overall_note": "已保存草稿 D-2bae596aeab9（v1，未发布）：M04 音乐授权过期被阻断；M05 用语风险待用户确认，暂按 12:00 排期；M07 通过并按 21:00 排期。", "reason": "提交逐项审核报告"} | 报告已接收；保存状态以工具记录为准 | 结束：completed_with_pending | 提交逐项审核报告 |
+
+Token 用量：{"prompt_tokens": 27931, "completion_tokens": 2425}

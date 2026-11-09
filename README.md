@@ -8,11 +8,12 @@ Python 3.10+，CLI，模型负责决策，代码校验红线。实现规格见 [
 py -3.10 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[test]"
 .\.venv\Scripts\schedule-agent.exe --help
+New-Item -ItemType Directory -Force runtime | Out-Null
 .\.venv\Scripts\python.exe -m pytest --basetemp runtime/pytest
 .\.venv\Scripts\python.exe scripts/run_scenarios.py --llm mock
 ```
 
-离线 Mock 仅验证流程，不证明真实模型决策效果。真实模型验证尚未执行。
+已完成离线测试 **76/76**、Mock 场景 **11/11**，以及 `deepseek-flash` 真实模型评估 **33/33**（11 个场景各 3 次）。Mock 只验证流程。真实结果、修正前失败和限制见 [评估文档](docs/03-evaluation.md)。
 任务进度见 [spec/07-tasks.md](spec/07-tasks.md)。
 
 ## 快速运行
@@ -33,28 +34,28 @@ macOS/Linux 可使用 `python3 -m venv .venv`，将可执行路径换为 `.venv/
 复制 `.env.example` 为本机 `.env`，填写 `LLM_BASE_URL`、`LLM_API_KEY`、`LLM_MODEL`，使用支持 function calling 的 OpenAI 兼容服务。示例提供 DeepSeek 和千问配置，实际模型名以服务方支持为准。Key 不要写入命令行或示例 JSON，`.env` 已忽略。
 
 ```powershell
-Copy-Item .env.example .env
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 # 编辑本机 .env 后执行
 .\.venv\Scripts\schedule-agent.exe run --llm live --input examples/inputs/S04_slot_conflict.json --state-dir runtime/live-s04 --out examples/live/S04_slot_conflict
 .\.venv\Scripts\python.exe scripts/run_scenarios.py --llm live --repeat 3
 ```
 
-调用会使用配置的真实 API。请本人核对结果：第 1 次结果与 Trace 写入 `examples/live/`，重复运行只汇总到 `examples/results/live_summary.md` 与 `.json`。当前没有真实模型 Trace，也没有 Live 通过率。
+调用会使用配置的真实 API。第 1 次结果与 Trace 写入 `examples/live/`，重复运行只汇总到 `examples/results/live_summary.md` 与 `.json`。本次实际验证使用 `deepseek-flash`，API 返回的模型名和非零 token 用量均记录在 Trace 中。评估器会拒绝缺少这些证据的 live 结果。
 
 ## 评审入口
 
-统一命令：`python scripts/run_scenarios.py --llm mock --only <场景>`；切换为 `--llm live --repeat 3` 即为真实模型验证。以下证据均为固定脚本离线结果。
+统一命令：`python scripts/run_scenarios.py --llm live --only <场景>`；加 `--repeat 3` 重复评估，换为 `--llm mock` 则离线验证。下表为实际真实模型记录。
 
-| 验收点 | `--only` 场景 | 离线 Trace |
+| 验收点 | `--only` 场景 | 真实模型 Trace |
 |---|---|---|
-| A1 正常排期 | S01_normal | [S01](examples/mock/S01_normal.mock.trace.md) |
-| A2 信息补查 | S02_missing_info | [S02](examples/mock/S02_missing_info.mock.trace.md) |
-| A3 规则风险 | S03_rule_risk | [S03](examples/mock/S03_rule_risk.mock.trace.md) |
-| A4 软冲突 / fixed 冲突 | S04_slot_conflict S05_hard_conflict | [S04](examples/mock/S04_slot_conflict.mock.trace.md)、[S05](examples/mock/S05_hard_conflict.mock.trace.md) |
-| A5 重复与占用变化 | S06_duplicate S06b_slot_changed | [S06](examples/mock/S06_duplicate.mock.trace.md)、[S06b](examples/mock/S06b_slot_changed.mock.trace.md) |
-| A6 保存失败 | S07_save_failure | [S07](examples/mock/S07_save_failure.mock.trace.md) |
+| A1 正常排期 | S01_normal | [S01](examples/live/S01_normal.trace.md) |
+| A2 信息补查 | S02_missing_info | [S02](examples/live/S02_missing_info.trace.md) |
+| A3 规则风险 | S03_rule_risk | [S03](examples/live/S03_rule_risk.trace.md) |
+| A4 软冲突 / fixed 冲突 | S04_slot_conflict S05_hard_conflict | [S04](examples/live/S04_slot_conflict.trace.md)、[S05](examples/live/S05_hard_conflict.trace.md) |
+| A5 重复与占用变化 | S06_duplicate S06b_slot_changed | [S06](examples/live/S06_duplicate.trace.md)、[S06b](examples/live/S06b_slot_changed.trace.md) |
+| A6 保存失败 | S07_save_failure | [S07](examples/live/S07_save_failure.trace.md) |
 
-[全量 Mock 汇总](examples/results/mock_summary.md)；[pytest 输出](examples/results/pytest.txt)。共 11 项场景，包括 S06b 与文件形式的第二轮确认 S10。`--only` 可指定多个场景，自动准备 S06/S06b/S10 前置状态；每次运行使用新的批次目录，每轮使用独立状态。
+[真实模型汇总](examples/results/live_summary.md)；[Mock 汇总](examples/results/mock_summary.md)；[pytest 输出](examples/results/pytest.txt)。共 11 项场景，包括 S06b 与文件形式的第二轮确认 S10。`--only` 可指定多个场景，自动准备 S06/S06b/S10 前置状态；每次运行使用新的批次目录，每轮使用独立状态。场景执行器还支持 `--out-dir` 指定评估材料目录。
 
 ## 更换占用时段并重复提交
 
@@ -80,4 +81,4 @@ run 支持 `--input --llm --state-dir --data-dir --max-steps --max-tool-calls --
 
 实现说明见[需求](docs/01-requirements.md)、[方案与代码防线](docs/02-solution.md)、[评估](docs/03-evaluation.md)、[执行记录](docs/implementation-log.md)。JSON 存储没有跨进程锁，生产环境需要事务和唯一约束。当前没有自然语言解析、真实发布、HTTP 服务或终端交互确认；时段粒度为整点。
 
-[AI 使用说明](docs/04-ai-usage.md)与[个人复盘](docs/05-retrospective.md)保留给本人填写。真实模型验证完成前，不应宣称 A1–A6 已通过 Live 验收。
+[AI 使用说明](docs/04-ai-usage.md)与[个人复盘](docs/05-retrospective.md)保留给本人填写。技术验证已完成；提交评审前仍需完成这两份个人材料，并提供 GitHub URL 和最终 commit SHA。

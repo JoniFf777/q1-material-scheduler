@@ -1,0 +1,33 @@
+{
+  "run_id": "run-02ae182e807c",
+  "request_key": "RQ-7f6c48bff24f",
+  "items": [
+    {
+      "material_id": "M01",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-10T19:00",
+      "channel": "douyin",
+      "slot_status": "alternative",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "M01 首选 2026-11-10 18:00 已被占用，19:00 可用（21:00 前硬约束内最近时段），是否改为 2026-11-10T19:00 发布抖音？"
+      ],
+      "confirmation_ids": [
+        "C-cb7a91b624"
+      ],
+      "draft_save_status": "duplicate"
+    }
+  ],
+  "draft_save": {
+    "status": "duplicate",
+    "draft_id": "D-7f6c48bff24f",
+    "version": 1,
+    "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\live\\batch-b57889a36c46\\repeat-1\\conflict-sequence\\drafts.json"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "completed_with_pending",
+  "invariant_errors": []
+}

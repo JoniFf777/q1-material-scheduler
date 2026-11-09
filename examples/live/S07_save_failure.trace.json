@@ -1,0 +1,266 @@
+{
+  "run_id": "run-e507ed32c880",
+  "llm": {
+    "mode": "live",
+    "provider": "api.deepseek.com",
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "response_model": "deepseek-flash"
+  },
+  "input_file": "D:\\java\\xiaoying\\q1-material-scheduler\\examples\\inputs\\S07_save_failure.json",
+  "limits": {
+    "max_steps": 15,
+    "max_tool_calls": 30,
+    "max_same_call": 3
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool_call_id": "call_00_5davEcpiTRc3YvdrnLt02027",
+      "tool": "get_material",
+      "args": {
+        "material_id": "M02",
+        "detail": "basic",
+        "reason": "读取素材基本信息以开始审核"
+      },
+      "reason": "读取素材基本信息以开始审核",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "周末露营 vlog",
+          "description": "记录周末露营",
+          "type": "video",
+          "duration_sec": 58,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": "合成内容团队",
+            "license_status": "valid",
+            "license_expiry": "2027-12-31"
+          }
+        },
+        "summary": "读取 M02（basic）"
+      },
+      "result_summary": "读取 M02（basic）",
+      "next_action": "check_rules {\"material_id\": \"M02\", \"scope\": \"basic\"}"
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_00_ET_u0ZYER4xf9EiIxebDQfO7588",
+      "tool": "check_rules",
+      "args": {
+        "material_id": "M02",
+        "scope": "basic",
+        "publish_date": "2026-11-10",
+        "reason": "按发布日期做基础规则校验"
+      },
+      "reason": "按发布日期做基础规则校验",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "material_id": "M02",
+          "scope": "basic",
+          "verdict": "pass",
+          "findings": []
+        },
+        "summary": "M02 审核 pass：未发现风险"
+      },
+      "result_summary": "M02 审核 pass：未发现风险",
+      "next_action": "query_slots {\"date\": \"2026-11-10\"}"
+    },
+    {
+      "step": 3,
+      "tool_call_id": "call_00_y0mpQGdwuzAn8xFXFte59368",
+      "tool": "query_slots",
+      "args": {
+        "channel": "douyin",
+        "date": "2026-11-10",
+        "from": "20:00",
+        "to": "21:00",
+        "reason": "查询偏好时段是否可用"
+      },
+      "reason": "查询偏好时段是否可用",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "channel": "douyin",
+          "date": "2026-11-10",
+          "slots": [
+            {
+              "start": "20:00",
+              "status": "available"
+            },
+            {
+              "start": "21:00",
+              "status": "available"
+            }
+          ]
+        },
+        "summary": "20:00 available；21:00 available"
+      },
+      "result_summary": "20:00 available；21:00 available",
+      "next_action": "save_schedule_draft {}"
+    },
+    {
+      "step": 4,
+      "tool_call_id": "call_00_zjtm0nKJP9ug9gyrUSjr7020",
+      "tool": "save_schedule_draft",
+      "args": {
+        "items": [
+          {
+            "material_id": "M02",
+            "review_status": "approved",
+            "risk_reasons": [],
+            "slot": {
+              "channel": "douyin",
+              "start": "2026-11-10T20:00"
+            },
+            "confirmation_status": "not_required",
+            "confirmation_ids": []
+          }
+        ],
+        "reason": "保存 M02 草稿，20:00 时段可用"
+      },
+      "reason": "保存 M02 草稿，20:00 时段可用",
+      "ok": false,
+      "observation": {
+        "ok": false,
+        "error_code": "STORAGE_UNAVAILABLE",
+        "message": "注入的工具故障",
+        "retryable": true
+      },
+      "result_summary": "注入的工具故障",
+      "next_action": "save_schedule_draft {}"
+    },
+    {
+      "step": 5,
+      "tool_call_id": "call_00_CUbusQLbNIPZTBX0gSUr7684",
+      "tool": "save_schedule_draft",
+      "args": {
+        "items": [
+          {
+            "confirmation_ids": [],
+            "confirmation_status": "not_required",
+            "material_id": "M02",
+            "review_status": "approved",
+            "risk_reasons": [],
+            "slot": {
+              "channel": "douyin",
+              "start": "2026-11-10T20:00"
+            }
+          }
+        ],
+        "reason": "重试保存 M02 草稿"
+      },
+      "reason": "重试保存 M02 草稿",
+      "ok": false,
+      "observation": {
+        "ok": false,
+        "error_code": "STORAGE_UNAVAILABLE",
+        "message": "注入的工具故障",
+        "retryable": true
+      },
+      "result_summary": "注入的工具故障",
+      "next_action": "submit_report {}"
+    },
+    {
+      "step": 6,
+      "tool_call_id": "call_00_wn0lQMSs3Ha7Tj6MhVv82644",
+      "tool": "submit_report",
+      "args": {
+        "items": [
+          {
+            "material_id": "M02",
+            "review_status": "unknown",
+            "risk_reasons": [],
+            "suggested_slot": null,
+            "confirmation_status": "not_required",
+            "pending_items": [
+              "草稿保存失败（STORAGE_UNAVAILABLE，已重试一次仍失败），需重新保存；审核 pass，douyin 2026-11-10 20:00 时段可用"
+            ]
+          }
+        ],
+        "overall_note": "M02 基础审核通过、20:00 时段可用，但 save_schedule_draft 连续两次返回 STORAGE_UNAVAILABLE，未能确认草稿保存，故按 unknown、slot=null 如实结束；未发布任何内容。",
+        "reason": "草稿保存失败，如实提交逐项报告"
+      },
+      "reason": "草稿保存失败，如实提交逐项报告",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "accepted": true
+        },
+        "summary": "报告已接收；保存状态以工具记录为准"
+      },
+      "result_summary": "报告已接收；保存状态以工具记录为准",
+      "next_action": "结束：save_failed"
+    }
+  ],
+  "model_calls": [
+    {
+      "step": 1,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2042,
+        "completion_tokens": 166
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 2,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2310,
+        "completion_tokens": 101
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 3,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2472,
+        "completion_tokens": 160
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 4,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2719,
+        "completion_tokens": 253
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 5,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3015,
+        "completion_tokens": 138
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 6,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3196,
+        "completion_tokens": 549
+      },
+      "tool_calls": 1
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 15754,
+    "completion_tokens": 1367
+  },
+  "status": "save_failed",
+  "incomplete_reason": null,
+  "termination_reason": null
+}

@@ -1,0 +1,33 @@
+{
+  "run_id": "run-ecfb75e3a937",
+  "request_key": "RQ-7f6c48bff24f",
+  "items": [
+    {
+      "material_id": "M01",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-10T19:00",
+      "channel": "douyin",
+      "slot_status": "alternative",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "首选18:00已被占用，是否改到同日19:00（douyin）发布？"
+      ],
+      "confirmation_ids": [
+        "C-cb7a91b624"
+      ],
+      "draft_save_status": "created"
+    }
+  ],
+  "draft_save": {
+    "status": "created",
+    "draft_id": "D-7f6c48bff24f",
+    "version": 1,
+    "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\live\\batch-b57889a36c46\\repeat-1\\conflict-sequence\\drafts.json"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "completed_with_pending",
+  "invariant_errors": []
+}

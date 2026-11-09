@@ -1,0 +1,33 @@
+{
+  "run_id": "run-1430d2feabd9",
+  "request_key": "RQ-4f2af2dcc59d",
+  "items": [
+    {
+      "material_id": "M06",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "M06 固定档期 2026-11-11 20:00（douyin）已被 M91 占用，且时间策略为 fixed，不能自动改期。是否放宽约束？例如改到同日 21:00（仍满足 not_after），或改期/改渠道，或取消本次排期。"
+      ],
+      "confirmation_ids": [
+        "C-2e4381ef17"
+      ],
+      "draft_save_status": "created"
+    }
+  ],
+  "draft_save": {
+    "status": "created",
+    "draft_id": "D-4f2af2dcc59d",
+    "version": 1,
+    "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\live\\batch-b57889a36c46\\repeat-1\\S05_hard_conflict\\drafts.json"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "completed_with_pending",
+  "invariant_errors": []
+}

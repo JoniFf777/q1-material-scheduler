@@ -1,0 +1,259 @@
+{
+  "run_id": "run-55ea36f2f9f9",
+  "llm": {
+    "mode": "live",
+    "provider": "api.deepseek.com",
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "response_model": "deepseek-flash"
+  },
+  "input_file": "D:\\java\\xiaoying\\q1-material-scheduler\\examples\\inputs\\S08_tool_retry.json",
+  "limits": {
+    "max_steps": 15,
+    "max_tool_calls": 30,
+    "max_same_call": 3
+  },
+  "steps": [
+    {
+      "step": 1,
+      "tool_call_id": "call_00_AxCQrfgCFC0ame0h4l1f5307",
+      "tool": "get_material",
+      "args": {
+        "material_id": "M02",
+        "detail": "basic",
+        "reason": "先读取 M02 基本信息"
+      },
+      "reason": "先读取 M02 基本信息",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "title": "周末露营 vlog",
+          "description": "记录周末露营",
+          "type": "video",
+          "duration_sec": 58,
+          "channels": [
+            "douyin"
+          ],
+          "copyright": {
+            "owner": "合成内容团队",
+            "license_status": "valid",
+            "license_expiry": "2027-12-31"
+          }
+        },
+        "summary": "读取 M02（basic）"
+      },
+      "result_summary": "读取 M02（basic）",
+      "next_action": "check_rules {\"material_id\": \"M02\", \"scope\": \"basic\"}"
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_00_nhprQeqdDgM4Ex2F7PS58326",
+      "tool": "check_rules",
+      "args": {
+        "material_id": "M02",
+        "scope": "basic",
+        "publish_date": "2026-11-10",
+        "reason": "按 2026-11-10 抖音投放基础审核"
+      },
+      "reason": "按 2026-11-10 抖音投放基础审核",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "material_id": "M02",
+          "scope": "basic",
+          "verdict": "pass",
+          "findings": []
+        },
+        "summary": "M02 审核 pass：未发现风险"
+      },
+      "result_summary": "M02 审核 pass：未发现风险",
+      "next_action": "query_slots {\"date\": \"2026-11-10\"}"
+    },
+    {
+      "step": 3,
+      "tool_call_id": "call_00_BwjaSfyHAM3usj5VXnrU2759",
+      "tool": "query_slots",
+      "args": {
+        "channel": "douyin",
+        "date": "2026-11-10",
+        "from": "20:00",
+        "to": "21:00",
+        "reason": "查询偏好时段附近可用档期"
+      },
+      "reason": "查询偏好时段附近可用档期",
+      "ok": false,
+      "observation": {
+        "ok": false,
+        "error_code": "TOOL_TIMEOUT",
+        "message": "注入的工具故障",
+        "retryable": true
+      },
+      "result_summary": "注入的工具故障",
+      "next_action": "query_slots {\"date\": \"2026-11-10\"}"
+    },
+    {
+      "step": 4,
+      "tool_call_id": "call_00_2FBeS53rysXV33oWBpFi6071",
+      "tool": "query_slots",
+      "args": {
+        "channel": "douyin",
+        "date": "2026-11-10",
+        "from": "20:00",
+        "to": "21:00",
+        "reason": "重试查询偏好时段档期"
+      },
+      "reason": "重试查询偏好时段档期",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "channel": "douyin",
+          "date": "2026-11-10",
+          "slots": [
+            {
+              "start": "20:00",
+              "status": "available"
+            },
+            {
+              "start": "21:00",
+              "status": "available"
+            }
+          ]
+        },
+        "summary": "20:00 available；21:00 available"
+      },
+      "result_summary": "20:00 available；21:00 available",
+      "next_action": "save_schedule_draft {}"
+    },
+    {
+      "step": 5,
+      "tool_call_id": "call_00_RoMd1newO16o4cgokde26364",
+      "tool": "save_schedule_draft",
+      "args": {
+        "items": [
+          {
+            "material_id": "M02",
+            "review_status": "approved",
+            "risk_reasons": [],
+            "slot": {
+              "channel": "douyin",
+              "start": "2026-11-10T20:00"
+            },
+            "confirmation_status": "not_required",
+            "confirmation_ids": []
+          }
+        ],
+        "reason": "M02 审核通过且首选时段可用"
+      },
+      "reason": "M02 审核通过且首选时段可用",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "draft_id": "D-9896d94c8916",
+          "version": 1,
+          "result": "created",
+          "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\live\\batch-b57889a36c46\\repeat-1\\S08_tool_retry\\drafts.json"
+        },
+        "summary": "草稿 created（v1，未发布）"
+      },
+      "result_summary": "草稿 created（v1，未发布）",
+      "next_action": "submit_report {}"
+    },
+    {
+      "step": 6,
+      "tool_call_id": "call_00_ET_ewLFbKJm46gbEEltqyMC7013",
+      "tool": "submit_report",
+      "args": {
+        "items": [
+          {
+            "material_id": "M02",
+            "review_status": "approved",
+            "risk_reasons": [],
+            "suggested_slot": "douyin 2026-11-10T20:00",
+            "confirmation_status": "not_required",
+            "pending_items": []
+          }
+        ],
+        "overall_note": "M02 审核通过，首选时段 2026-11-10 20:00（抖音）可用且未超过 21:00 硬约束，草稿 D-9896d94c8916 已保存，未发布。",
+        "reason": "全部素材有结论，提交报告"
+      },
+      "reason": "全部素材有结论，提交报告",
+      "ok": true,
+      "observation": {
+        "ok": true,
+        "data": {
+          "accepted": true
+        },
+        "summary": "报告已接收；保存状态以工具记录为准"
+      },
+      "result_summary": "报告已接收；保存状态以工具记录为准",
+      "next_action": "结束：completed"
+    }
+  ],
+  "model_calls": [
+    {
+      "step": 1,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2042,
+        "completion_tokens": 198
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 2,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2342,
+        "completion_tokens": 128
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 3,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2531,
+        "completion_tokens": 234
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 4,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 2807,
+        "completion_tokens": 134
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 5,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3028,
+        "completion_tokens": 247
+      },
+      "tool_calls": 1
+    },
+    {
+      "step": 6,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3389,
+        "completion_tokens": 188
+      },
+      "tool_calls": 1
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 16139,
+    "completion_tokens": 1129
+  },
+  "status": "completed",
+  "incomplete_reason": null,
+  "termination_reason": null
+}

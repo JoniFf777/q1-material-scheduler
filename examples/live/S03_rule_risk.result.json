@@ -1,0 +1,64 @@
+{
+  "run_id": "run-7db9b349c131",
+  "request_key": "RQ-2bae596aeab9",
+  "items": [
+    {
+      "material_id": "M04",
+      "review_status": "blocked",
+      "risk_reasons": [
+        "music 授权已过期（2026-10-31）"
+      ],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "not_required",
+      "pending_items": [],
+      "confirmation_ids": [],
+      "draft_save_status": "created"
+    },
+    {
+      "material_id": "M05",
+      "review_status": "needs_confirmation",
+      "risk_reasons": [
+        "用语风险：第一"
+      ],
+      "suggested_slot": "2026-11-10T12:00",
+      "channel": "xiaohongshu",
+      "slot_status": "as_requested",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "M05 标题含\"全网第一\"用语风险（R04），是否确认接受风险并按 2026-11-10 12:00（xiaohongshu）排期？"
+      ],
+      "confirmation_ids": [
+        "C-1ad5c3fa5f"
+      ],
+      "draft_save_status": "created"
+    },
+    {
+      "material_id": "M07",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-10T21:00",
+      "channel": "douyin",
+      "slot_status": "as_requested",
+      "confirmation_status": "not_required",
+      "pending_items": [],
+      "confirmation_ids": [],
+      "draft_save_status": "created"
+    }
+  ],
+  "draft_save": {
+    "status": "created",
+    "draft_id": "D-2bae596aeab9",
+    "version": 1,
+    "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\live\\batch-b57889a36c46\\repeat-1\\S03_rule_risk\\drafts.json"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [
+    "M05：模型结论与工具事实不同，已采用工具事实",
+    "M07：模型结论与工具事实不同，已采用工具事实"
+  ],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "completed_with_pending",
+  "invariant_errors": []
+}

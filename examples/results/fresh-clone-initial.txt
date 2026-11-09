@@ -1,0 +1,946 @@
+COMMAND: git rev-parse HEAD
+3071a862aa85212de17253ca3ea984961d34034a
+
+
+EXIT: 0
+
+COMMAND: D:\java\xiaoying\q1-material-scheduler\runtime\release-check-e4e90a62db814534a888c14e4cb44664\.venv\Scripts\python.exe -X utf8 -c from pathlib import Path; import schedule_agent,sys; assert Path(schedule_agent.__file__).resolve().is_relative_to(Path.cwd()); print("Independent source and virtual environment:",sys.prefix)
+Independent source and virtual environment: D:\java\xiaoying\q1-material-scheduler\runtime\release-check-e4e90a62db814534a888c14e4cb44664\.venv
+
+
+EXIT: 0
+
+COMMAND: D:\java\xiaoying\q1-material-scheduler\runtime\release-check-e4e90a62db814534a888c14e4cb44664\.venv\Scripts\schedule-agent.exe --help
+usage: schedule-agent [-h] {run,drafts,reset} ...
+
+�ز���������ڲݸ壨δִ�з�����
+
+positional arguments:
+  {run,drafts,reset}
+    run               �������ڲݸ�
+    drafts            ��鱾�زݸ�
+    reset             ��ɾ��ָ��״̬Ŀ¼�� drafts.json
+
+options:
+  -h, --help          show this help message and exit
+
+
+EXIT: 0
+
+COMMAND: D:\java\xiaoying\q1-material-scheduler\runtime\release-check-e4e90a62db814534a888c14e4cb44664\.venv\Scripts\python.exe -m pip check
+No broken requirements found.
+
+
+EXIT: 0
+
+COMMAND: D:\java\xiaoying\q1-material-scheduler\runtime\release-check-e4e90a62db814534a888c14e4cb44664\.venv\Scripts\python.exe -X utf8 -m pytest --basetemp=runtime/pytest-release
+============================= test session starts =============================
+platform win32 -- Python 3.10.9, pytest-9.2.0, pluggy-1.7.0
+rootdir: D:\java\xiaoying\q1-material-scheduler\runtime\release-check-e4e90a62db814534a888c14e4cb44664
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collected 76 items
+
+tests\test_agent_loop.py EEEEEEEEEEEEE                                   [ 17%]
+tests\test_cli.py EE............                                         [ 35%]
+tests\test_draft_store.py EEEE                                           [ 40%]
+tests\test_evaluation.py EE                                              [ 43%]
+tests\test_fingerprint.py ..                                             [ 46%]
+tests\test_guards.py EEEEEEEEEEEEEEEEE                                   [ 68%]
+tests\test_llm_client.py ..                                              [ 71%]
+tests\test_scaffold.py .                                                 [ 72%]
+tests\test_scenarios.py EEEEEEEEEEEE                                     [ 88%]
+tests\test_tools.py EEEEEEEEE                                            [100%]
+
+=================================== ERRORS ====================================
+__________ ERROR at setup of test_normal_ends_with_real_save_record ___________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_____ ERROR at setup of test_validation_error_is_observed_then_corrected ______
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_invalid_json_and_missing_report_items_can_be_repaired _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_false_save_claim_is_corrected_after_storage_failure __
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+__ ERROR at setup of test_loop_does_not_end_on_plain_text_and_respects_steps __
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_________ ERROR at setup of test_multicall_turn_respects_tool_budget __________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+__________ ERROR at setup of test_repetition_ignores_reason_wording ___________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_______ ERROR at setup of test_mock_exhaustion_is_failed_not_incomplete _______
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_report_cannot_forge_approval_or_slot_without_tool_facts _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+______ ERROR at setup of test_unsafe_report_cannot_override_saved_draft _______
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_______ ERROR at setup of test_public_trace_filters_publication_claims ________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+__________ ERROR at setup of test_tool_error_reaches_next_model_turn __________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_saved_draft_must_be_updated_after_new_blocking_evidence _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+___ ERROR at setup of test_cli_run_inspect_and_reset_preserves_other_files ____
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_________ ERROR at setup of test_cli_limit_override_and_invalid_fault _________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_________ ERROR at setup of test_created_duplicate_update_and_history _________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+______ ERROR at setup of test_atomic_replace_failure_keeps_original_file ______
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_semantic_duplicate_survives_wording_and_confirmation_order _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_____ ERROR at setup of test_corrupt_store_is_never_silently_overwritten ______
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_step_limit_keeps_reviews_completed_by_batched_model_calls _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_step_limit_evaluation_rejects_approval_without_a_rule_check _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_____________ ERROR at setup of test_unchecked_and_missing_items ______________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_changed_slot_requires_registered_pending_confirmation _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+___ ERROR at setup of test_fixed_time_cannot_change_even_if_marked_pending ____
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_forged_confirmed_and_wrong_slot_user_reply_are_rejected _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_________ ERROR at setup of test_exact_user_confirmation_is_accepted __________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_______ ERROR at setup of test_unready_items_cannot_have_slot[blocked] ________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+______ ERROR at setup of test_unready_items_cannot_have_slot[need_info] _______
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_______ ERROR at setup of test_unready_items_cannot_have_slot[unknown] ________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_grid_hard_constraints_and_conflicts[2026-11-10T20:30-douyin-INVALID_SLOT] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_grid_hard_constraints_and_conflicts[2026-11-10T07:00-douyin-INVALID_SLOT] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_grid_hard_constraints_and_conflicts[2026-11-10T22:00-douyin-HARD_CONSTRAINT_VIOLATION] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_grid_hard_constraints_and_conflicts[2026-11-11T20:00-douyin-HARD_CONSTRAINT_VIOLATION] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_grid_hard_constraints_and_conflicts[2026-11-10T20:00-xiaohongshu-HARD_CONSTRAINT_VIOLATION] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_grid_hard_constraints_and_conflicts[bad-time-douyin-INVALID_SLOT] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_grid_hard_constraints_and_conflicts[2026-11-10T18:00-douyin-SLOT_CONFLICT] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_risk_cannot_be_bypassed_and_intra_request_slots_conflict _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_missing_material_fact_allows_only_unscheduled_need_info _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S01_normal] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S02_missing_info] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S03_rule_risk] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S04_slot_conflict] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S05_hard_conflict] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S06_duplicate] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S06b_slot_changed] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S07_save_failure] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S08_tool_retry] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S09_step_limit] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_each_scenario_matches_expectations_and_invariants[S10_confirm_round2] _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_runner_prepares_chain_and_keeps_repeated_outputs_in_summary _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_seven_tools_have_reason_and_invalid_calls_return_observation _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+__________ ERROR at setup of test_missing_info_full_view_and_recheck __________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_license_lookup_diverges_and_full_read_keeps_evidence _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_own_hold_available_but_schedule_occupancy_takes_priority _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_________ ERROR at setup of test_other_requests_drafts_are_conflicts __________
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_fault_once_recovers_and_save_failure_leaves_file_unchanged _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+___ ERROR at setup of test_deep_content_checks_do_not_erase_other_findings ____
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+_ ERROR at setup of test_invalid_license_and_missing_music_license_are_not_pass _
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+__ ERROR at setup of test_pending_scope_cannot_silently_switch_user_channel ___
+
+self = WindowsPath('D:/java/xiaoying/q1-material-scheduler/runtime/release-check-e4e90a62db814534a888c14e4cb44664/runtime/pytest-release')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           self._accessor.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\release-check-e4e90a62db814534a888c14e4cb44664\\runtime\\pytest-release'
+
+D:\DL\Anaconda3\lib\pathlib.py:1175: FileNotFoundError
+=========================== short test summary info ===========================
+ERROR tests/test_agent_loop.py::test_normal_ends_with_real_save_record - File...
+ERROR tests/test_agent_loop.py::test_validation_error_is_observed_then_corrected
+ERROR tests/test_agent_loop.py::test_invalid_json_and_missing_report_items_can_be_repaired
+ERROR tests/test_agent_loop.py::test_false_save_claim_is_corrected_after_storage_failure
+ERROR tests/test_agent_loop.py::test_loop_does_not_end_on_plain_text_and_respects_steps
+ERROR tests/test_agent_loop.py::test_multicall_turn_respects_tool_budget - Fi...
+ERROR tests/test_agent_loop.py::test_repetition_ignores_reason_wording - File...
+ERROR tests/test_agent_loop.py::test_mock_exhaustion_is_failed_not_incomplete
+ERROR tests/test_agent_loop.py::test_report_cannot_forge_approval_or_slot_without_tool_facts
+ERROR tests/test_agent_loop.py::test_unsafe_report_cannot_override_saved_draft
+ERROR tests/test_agent_loop.py::test_public_trace_filters_publication_claims
+ERROR tests/test_agent_loop.py::test_tool_error_reaches_next_model_turn - Fil...
+ERROR tests/test_agent_loop.py::test_saved_draft_must_be_updated_after_new_blocking_evidence
+ERROR tests/test_cli.py::test_cli_run_inspect_and_reset_preserves_other_files
+ERROR tests/test_cli.py::test_cli_limit_override_and_invalid_fault - FileNotF...
+ERROR tests/test_draft_store.py::test_created_duplicate_update_and_history - ...
+ERROR tests/test_draft_store.py::test_atomic_replace_failure_keeps_original_file
+ERROR tests/test_draft_store.py::test_semantic_duplicate_survives_wording_and_confirmation_order
+ERROR tests/test_draft_store.py::test_corrupt_store_is_never_silently_overwritten
+ERROR tests/test_evaluation.py::test_step_limit_keeps_reviews_completed_by_batched_model_calls
+ERROR tests/test_evaluation.py::test_step_limit_evaluation_rejects_approval_without_a_rule_check
+ERROR tests/test_guards.py::test_unchecked_and_missing_items - FileNotFoundEr...
+ERROR tests/test_guards.py::test_changed_slot_requires_registered_pending_confirmation
+ERROR tests/test_guards.py::test_fixed_time_cannot_change_even_if_marked_pending
+ERROR tests/test_guards.py::test_forged_confirmed_and_wrong_slot_user_reply_are_rejected
+ERROR tests/test_guards.py::test_exact_user_confirmation_is_accepted - FileNo...
+ERROR tests/test_guards.py::test_unready_items_cannot_have_slot[blocked] - Fi...
+ERROR tests/test_guards.py::test_unready_items_cannot_have_slot[need_info] - ...
+ERROR tests/test_guards.py::test_unready_items_cannot_have_slot[unknown] - Fi...
+ERROR tests/test_guards.py::test_grid_hard_constraints_and_conflicts[2026-11-10T20:30-douyin-INVALID_SLOT]
+ERROR tests/test_guards.py::test_grid_hard_constraints_and_conflicts[2026-11-10T07:00-douyin-INVALID_SLOT]
+ERROR tests/test_guards.py::test_grid_hard_constraints_and_conflicts[2026-11-10T22:00-douyin-HARD_CONSTRAINT_VIOLATION]
+ERROR tests/test_guards.py::test_grid_hard_constraints_and_conflicts[2026-11-11T20:00-douyin-HARD_CONSTRAINT_VIOLATION]
+ERROR tests/test_guards.py::test_grid_hard_constraints_and_conflicts[2026-11-10T20:00-xiaohongshu-HARD_CONSTRAINT_VIOLATION]
+ERROR tests/test_guards.py::test_grid_hard_constraints_and_conflicts[bad-time-douyin-INVALID_SLOT]
+ERROR tests/test_guards.py::test_grid_hard_constraints_and_conflicts[2026-11-10T18:00-douyin-SLOT_CONFLICT]
+ERROR tests/test_guards.py::test_risk_cannot_be_bypassed_and_intra_request_slots_conflict
+ERROR tests/test_guards.py::test_missing_material_fact_allows_only_unscheduled_need_info
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S01_normal]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S02_missing_info]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S03_rule_risk]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S04_slot_conflict]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S05_hard_conflict]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S06_duplicate]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S06b_slot_changed]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S07_save_failure]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S08_tool_retry]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S09_step_limit]
+ERROR tests/test_scenarios.py::test_each_scenario_matches_expectations_and_invariants[S10_confirm_round2]
+ERROR tests/test_scenarios.py::test_runner_prepares_chain_and_keeps_repeated_outputs_in_summary
+ERROR tests/test_tools.py::test_seven_tools_have_reason_and_invalid_calls_return_observation
+ERROR tests/test_tools.py::test_missing_info_full_view_and_recheck - FileNotF...
+ERROR tests/test_tools.py::test_license_lookup_diverges_and_full_read_keeps_evidence
+ERROR tests/test_tools.py::test_own_hold_available_but_schedule_occupancy_takes_priority
+ERROR tests/test_tools.py::test_other_requests_drafts_are_conflicts - FileNot...
+ERROR tests/test_tools.py::test_fault_once_recovers_and_save_failure_leaves_file_unchanged
+ERROR tests/test_tools.py::test_deep_content_checks_do_not_erase_other_findings
+ERROR tests/test_tools.py::test_invalid_license_and_missing_music_license_are_not_pass
+ERROR tests/test_tools.py::test_pending_scope_cannot_silently_switch_user_channel
+======================= 17 passed, 59 errors in 14.65s ========================
+
+
+EXIT: 1

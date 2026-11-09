@@ -1,0 +1,57 @@
+{
+  "run_id": "run-e194f495a5a5",
+  "request_key": "RQ-50216fe53bee",
+  "items": [
+    {
+      "material_id": "M03",
+      "review_status": "need_info",
+      "risk_reasons": [
+        "缺少 copyright.license_status",
+        "缺少 copyright.owner"
+      ],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "M03（新品开箱）基础审核与授权库查询均显示缺少 copyright.owner 与 copyright.license_status，无法判定授权合规。请补充版权所有者与授权状态（含到期时间）后再安排排期。"
+      ],
+      "confirmation_ids": [
+        "C-849768b35c"
+      ],
+      "draft_save_status": "created"
+    },
+    {
+      "material_id": "M08",
+      "review_status": "need_info",
+      "risk_reasons": [
+        "素材不存在"
+      ],
+      "suggested_slot": null,
+      "channel": "douyin",
+      "slot_status": "none",
+      "confirmation_status": "pending",
+      "pending_items": [
+        "素材 M08 在系统中不存在（NOT_FOUND），无法读取与审核。请确认 material_id 是否正确，或提供有效素材编号后再安排排期。"
+      ],
+      "confirmation_ids": [
+        "C-d04efbe430"
+      ],
+      "draft_save_status": "created"
+    }
+  ],
+  "draft_save": {
+    "status": "created",
+    "draft_id": "D-50216fe53bee",
+    "version": 1,
+    "store_file": "D:\\java\\xiaoying\\q1-material-scheduler\\runtime\\scenarios\\live\\batch-b57889a36c46\\repeat-1\\S02_missing_info\\drafts.json"
+  },
+  "publish_action": "none",
+  "consistency_warnings": [
+    "M03：模型结论与工具事实不同，已采用工具事实",
+    "M08：模型结论与工具事实不同，已采用工具事实"
+  ],
+  "notice": "本系统仅生成排期草稿，未执行任何发布",
+  "status": "completed_with_pending",
+  "invariant_errors": []
+}

@@ -45,4 +45,5 @@ RunContext 保存工作视图、审核、查询、确认和保存尝试/成功�
 
 JSON 适用于单进程 CLI，没有跨进程锁。生产环境需要数据库事务、幂等键唯一约束、渠道时段唯一约束，并接入真实授权、身份与审计服务。当前用户确认信任本机结构化输入，不提供身份认证。
 
-工具调用格式参考 [OpenAI 官方 function calling 文档](https://developers.openai.com/api/docs/guides/function-calling)：逐个执行 tool_calls，并使用 tool_call_id 回传结构化工具结果。接口协议已用本地 SDK + HTTP MockTransport 验证，尚未验证第三方真实模型。
+工具调用格式参考 [OpenAI 官方 function calling 文档](https://developers.openai.com/api/docs/guides/function-calling)：逐个执行 tool_calls，并使用 tool_call_id 回传结构化工具结果。接口协议已用本地 SDK + HTTP MockTransport 及第三方真实模型调用验证。
+实际已使用 DeepSeek `deepseek-flash` 完成 33 次场景验证，结果和失败修正见 [评估文档](03-evaluation.md)。时间调整待确认不改变审核通过结论；真实 Trace 证明模型能在保存校验失败后修正这一点。

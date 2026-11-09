@@ -1,0 +1,8 @@
+运行状态：completed_with_pending
+草稿已保存（待确认，未发布）；保存结果：created
+M01 | approved | 2026-11-10T19:00 | pending
+  待确认：抖音2026-11-10 18:00已被占用，是否改排至19:00（21:00前，符合硬约束）？
+一致性提醒：M01：模型结论与工具事实不同，已采用工具事实
+本系统仅生成排期草稿，未执行任何发布
+结果与 Trace：D:\java\xiaoying\q1-material-scheduler\examples\live\fresh-clone-S04_slot_conflict.*
+
