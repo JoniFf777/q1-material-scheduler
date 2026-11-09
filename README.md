@@ -81,4 +81,4 @@ run 支持 `--input --llm --state-dir --data-dir --max-steps --max-tool-calls --
 
 实现说明见[需求](docs/01-requirements.md)、[方案与代码防线](docs/02-solution.md)、[评估](docs/03-evaluation.md)、[执行记录](docs/implementation-log.md)。JSON 存储没有跨进程锁，生产环境需要事务和唯一约束。当前没有自然语言解析、真实发布、HTTP 服务或终端交互确认；时段粒度为整点。
 
-[AI 使用说明](docs/04-ai-usage.md)与[个人复盘](docs/05-retrospective.md)保留给本人填写。技术验证已完成；提交评审前仍需完成这两份个人材料，并提供 GitHub URL 和最终 commit SHA。
+[AI 使用说明](docs/04-ai-usage.md)与[项目复盘](docs/05-retrospective.md)由 Codex 按候选人授权、实际操作和运行证据协助整理，个人贡献与 AI 辅助范围已分别说明。
